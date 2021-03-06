@@ -3,11 +3,18 @@ package com.example.studydesignpattern
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 
-abstract class BaseActivity(@LayoutRes private val layoutId: Int) : AppCompatActivity() {
+abstract class BaseActivity<T : ViewDataBinding>(@LayoutRes private val layoutId: Int) :
+    AppCompatActivity() {
+
+    protected lateinit var binding: T
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutId)
+        binding = DataBindingUtil.setContentView(this, layoutId)
+        binding.lifecycleOwner = this
+        setContentView(binding.root)
     }
 }
