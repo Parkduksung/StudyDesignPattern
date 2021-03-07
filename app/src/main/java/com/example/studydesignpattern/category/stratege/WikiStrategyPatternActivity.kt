@@ -1,6 +1,7 @@
 package com.example.studydesignpattern.category.stratege
 
 import android.os.Bundle
+import android.util.Log
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
 import com.example.studydesignpattern.databinding.ActivityWikiStrategyBinding
@@ -15,18 +16,45 @@ class WikiStrategyPatternActivity :
 
 
 interface IBrakeBehavior {
-
-
+    fun brake()
 }
 
 class BrakeWithABS : IBrakeBehavior {
 
+    override fun brake() {
+        Log.d("결과", "BrakeWithABS brake")
+    }
 }
 
 class Brake : IBrakeBehavior {
 
+    override fun brake() {
+        Log.d("결과", "Default brake")
+    }
 }
 
-abstract class Car : IBrakeBehavior {
+abstract class Car {
 
+    private lateinit var iBrakeBehavior: IBrakeBehavior
+
+    fun setBrakeBehavior(iBrakeBehavior: IBrakeBehavior) {
+        this.iBrakeBehavior = iBrakeBehavior
+    }
+
+    fun applyBrake() {
+        iBrakeBehavior.brake()
+    }
+
+}
+
+class Sedan : Car() {
+    init {
+        setBrakeBehavior(Brake())
+    }
+}
+
+class SUV : Car() {
+    init {
+        setBrakeBehavior(BrakeWithABS())
+    }
 }
