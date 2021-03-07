@@ -16,20 +16,71 @@ interface FlyBehavior {
     fun fly()
 }
 
+class FlyWithWings : FlyBehavior {
+    override fun fly() {
+        TODO("Not yet implemented")
+    }
+}
+
+class FlyNoWay : FlyBehavior {
+    override fun fly() {
+        TODO("Not yet implemented")
+    }
+}
+
+
 interface QuackBehavior {
     fun quack()
 }
 
+class Quack : QuackBehavior {
+    override fun quack() {
+        TODO("Not yet implemented")
+    }
+}
+
+class Squeak : QuackBehavior {
+    override fun quack() {
+        TODO("Not yet implemented")
+    }
+}
+
+class MuteQuack : QuackBehavior {
+    override fun quack() {
+        TODO("Not yet implemented")
+    }
+}
+
 abstract class Duck : FlyBehavior, QuackBehavior {
 
-    abstract fun display()
+    fun display() {
+
+    }
+
+    fun swim() {
+
+    }
+
+    fun performQuack() {
+
+    }
+
+    fun performFly() {
+
+    }
+
+    fun setFlyBehavior() {
+
+    }
+
+    fun setQuackBehavior() {
+
+    }
+
 }
 
 
-class BlueDuck : Duck(){
-    override fun display() {
-        TODO("Not yet implemented")
-    }
+class BlueDuck : Duck() {
 
     override fun fly() {
         TODO("Not yet implemented")
@@ -41,10 +92,7 @@ class BlueDuck : Duck(){
 
 }
 
-class RedDuck : Duck(){
-    override fun display() {
-        TODO("Not yet implemented")
-    }
+class RedDuck : Duck() {
 
     override fun fly() {
         TODO("Not yet implemented")
@@ -55,10 +103,7 @@ class RedDuck : Duck(){
     }
 }
 
-class ToyRubberDuck : Duck(){
-    override fun display() {
-        TODO("Not yet implemented")
-    }
+class ToyRubberDuck : Duck() {
 
     override fun fly() {
         TODO("Not yet implemented")
@@ -69,10 +114,7 @@ class ToyRubberDuck : Duck(){
     }
 }
 
-class ToyWoodDuck : Duck(){
-    override fun display() {
-        TODO("Not yet implemented")
-    }
+class ToyWoodDuck : Duck() {
 
     override fun fly() {
         TODO("Not yet implemented")
