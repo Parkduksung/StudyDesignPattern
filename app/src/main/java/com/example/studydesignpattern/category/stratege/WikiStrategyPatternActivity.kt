@@ -33,13 +33,7 @@ class Brake : IBrakeBehavior {
     }
 }
 
-abstract class Car {
-
-    private lateinit var iBrakeBehavior: IBrakeBehavior
-
-    fun setBrakeBehavior(iBrakeBehavior: IBrakeBehavior) {
-        this.iBrakeBehavior = iBrakeBehavior
-    }
+abstract class Car(private val iBrakeBehavior: IBrakeBehavior) {
 
     fun applyBrake() {
         iBrakeBehavior.brake()
@@ -47,14 +41,10 @@ abstract class Car {
 
 }
 
-class Sedan : Car() {
-    init {
-        setBrakeBehavior(Brake())
-    }
+class Sedan : Car(Brake()) {
+
 }
 
-class SUV : Car() {
-    init {
-        setBrakeBehavior(BrakeWithABS())
-    }
+class SUV : Car(BrakeWithABS()) {
+
 }
