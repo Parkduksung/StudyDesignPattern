@@ -9,8 +9,8 @@ import com.example.studydesignpattern.databinding.ActivityWikiStrategyBinding
 class WikiStrategyPatternActivity :
     BaseActivity<ActivityWikiStrategyBinding>(R.layout.activity_wiki_strategy) {
 
-    private val sedanCar: Car by lazy { Sedan() }
     private val suvCar: Car by lazy { SUV() }
+    private val sedanCar: Car by lazy { Sedan() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +19,10 @@ class WikiStrategyPatternActivity :
 
         suvCar.run {
             applyBrake()
-            setBrakeBehavior(Brake())
-            applyBrake()
+            //이렇게 하면 set 해서 다른 세단을 만들기가 힘들어진다.
+
         }
+
     }
 }
 
@@ -44,13 +45,7 @@ class Brake : IBrakeBehavior {
     }
 }
 
-abstract class Car {
-
-    private lateinit var iBrakeBehavior: IBrakeBehavior
-
-    fun setBrakeBehavior(iBrakeBehavior: IBrakeBehavior) {
-        this.iBrakeBehavior = iBrakeBehavior
-    }
+abstract class Car(private val iBrakeBehavior: IBrakeBehavior) {
 
     fun applyBrake() {
         iBrakeBehavior.brake()
@@ -58,14 +53,10 @@ abstract class Car {
 
 }
 
-class Sedan : Car() {
-    init {
-        setBrakeBehavior(Brake())
-    }
+class Sedan : Car(Brake()) {
+
 }
 
-class SUV : Car() {
-    init {
-        setBrakeBehavior(BrakeWithABS())
-    }
+class SUV : Car(BrakeWithABS()) {
+
 }
