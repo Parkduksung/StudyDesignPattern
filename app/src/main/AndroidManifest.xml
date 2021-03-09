@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyDesignPattern">
-        <activity android:name=".category.stratege.WikiStrategyPatternActivity">
+        <activity android:name=".category.stratege.StrategyPatternActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
