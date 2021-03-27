@@ -22,6 +22,10 @@ class ObserverWikiActivity :
 
         wikiSubject.notifyObservers()
 
+        wikiSubject.unregisterObserver(wikiObserverA)
+
+        wikiSubject.notifyObservers()
+
     }
 }
 
@@ -35,11 +39,11 @@ class WikiSubject {
     private val observerList = mutableListOf<WikiObserver>()
 
     fun registerObserver(wikiObserver: WikiObserver) {
-        observerList.add(wikiObserver)
+        observerList+=wikiObserver
     }
 
     fun unregisterObserver(wikiObserver: WikiObserver) {
-        observerList.remove(wikiObserver)
+        observerList-=wikiObserver
     }
 
     fun notifyObservers() {
