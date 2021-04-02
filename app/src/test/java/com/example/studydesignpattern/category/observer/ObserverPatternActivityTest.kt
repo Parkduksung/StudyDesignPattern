@@ -47,4 +47,14 @@ class ObserverPatternActivityTest {
 
         assertEquals("SampleObserver1", outputStreamCaptor.toString())
     }
+
+    @Test
+    fun `옵저버에 추가된 것을 제거하여 빈 옵저버 상태에서 notify시, 아무것도 찍히지 않아야 한다`() {
+        val concreteSubject = ConcreteSubject()
+        concreteSubject.registerObserver(sampleObserver1)
+        concreteSubject.removeObserver(sampleObserver1)
+        concreteSubject.notifyObserver()
+
+        assertEquals("", outputStreamCaptor.toString())
+    }
 }
