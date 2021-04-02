@@ -36,13 +36,13 @@ interface Observer {
 
 class SampleObserver1 : Observer {
     override fun update() {
-        Log.d("결과", "SampleObserver1")
+        print("SampleObserver1")
     }
 }
 
 class SampleObserver2 : Observer {
     override fun update() {
-        Log.d("결과", "SampleObserver2")
+        print("SampleObserver2")
     }
 }
 

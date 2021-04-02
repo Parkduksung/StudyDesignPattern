@@ -37,4 +37,14 @@ class ObserverPatternActivityTest {
         assertEquals("", outputStreamCaptor.toString())
     }
 
+
+    @Test
+    fun `옵저버에 추가되어 notify 시 , update 가 불려야 한다`() {
+
+        val concreteSubject = ConcreteSubject()
+        concreteSubject.registerObserver(sampleObserver1)
+        concreteSubject.notifyObserver()
+
+        assertEquals("SampleObserver1", outputStreamCaptor.toString())
+    }
 }
