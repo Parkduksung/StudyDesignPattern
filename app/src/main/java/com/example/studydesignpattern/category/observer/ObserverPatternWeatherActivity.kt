@@ -1,6 +1,7 @@
 package com.example.studydesignpattern.category.observer
 
 import android.os.Bundle
+import android.util.Log
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
 import com.example.studydesignpattern.databinding.ActivityWikiObserverBinding
@@ -43,7 +44,7 @@ interface WeatherSubject : WeatherObserver {
 
 class CurrentConditionDisplay(private val weather: Weather) : WeatherObserver {
     override fun update() {
-        weather.logWeather()
+        print(weather.logWeather())
     }
 }
 
