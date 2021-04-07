@@ -7,6 +7,7 @@ import com.example.studydesignpattern.R
 import com.example.studydesignpattern.category.factorymethod.Creator
 import com.example.studydesignpattern.category.factorymethod.CreatorFactory
 import com.example.studydesignpattern.category.factorymethod.Product1
+import com.example.studydesignpattern.category.prototype.ProtoTypePattern
 import com.example.studydesignpattern.databinding.ActivityWikiObserverBinding
 
 class ObserverPatternWeatherActivity :
@@ -31,9 +32,9 @@ class ObserverPatternWeatherActivity :
 //
 //        weatherData.notifyObserver()
 
+        val protoTypePatternA = ProtoTypePattern()
 
-        val creator: Creator = CreatorFactory("product1")
-        creator.operation()
+        val protoTypePatternB = protoTypePatternA.clone()
 
     }
 
