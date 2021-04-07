@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
+import com.example.studydesignpattern.category.factorymethod.Creator
+import com.example.studydesignpattern.category.factorymethod.CreatorFactory
+import com.example.studydesignpattern.category.factorymethod.Product1
 import com.example.studydesignpattern.databinding.ActivityWikiObserverBinding
 
 class ObserverPatternWeatherActivity :
@@ -12,21 +15,26 @@ class ObserverPatternWeatherActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val currentConditionDisplay1: WeatherObserver =
-            CurrentConditionDisplay(Weather("10", "10", "20"))
-        val currentConditionDisplay2: WeatherObserver =
-            CurrentConditionDisplay(Weather("11", "11", "21"))
-        val currentConditionDisplay3: WeatherObserver =
-            CurrentConditionDisplay(Weather("12", "12", "22"))
+//        val currentConditionDisplay1: WeatherObserver =
+//            CurrentConditionDisplay(Weather("10", "10", "20"))
+//        val currentConditionDisplay2: WeatherObserver =
+//            CurrentConditionDisplay(Weather("11", "11", "21"))
+//        val currentConditionDisplay3: WeatherObserver =
+//            CurrentConditionDisplay(Weather("12", "12", "22"))
+//
+//        val weatherData: WeatherSubject = WeatherData()
+//        weatherData.registerObserver(currentConditionDisplay1)
+//        weatherData.registerObserver(currentConditionDisplay2)
+//        weatherData.registerObserver(currentConditionDisplay3)
+//
+//        weatherData.removeObserver(currentConditionDisplay1)
+//
+//        weatherData.notifyObserver()
 
-        val weatherData: WeatherSubject = WeatherData()
-        weatherData.registerObserver(currentConditionDisplay1)
-        weatherData.registerObserver(currentConditionDisplay2)
-        weatherData.registerObserver(currentConditionDisplay3)
 
-        weatherData.removeObserver(currentConditionDisplay1)
+        val creator: Creator = CreatorFactory("product1")
+        creator.operation()
 
-        weatherData.notifyObserver()
     }
 
 }
@@ -77,6 +85,6 @@ data class Weather(
     var humidity: String? = "",
     var pressure: String? = ""
 ) {
-    fun logWeather() : String = "온도 : $temperature 습도 : $humidity 압력 : $pressure"
+    fun logWeather(): String = "온도 : $temperature 습도 : $humidity 압력 : $pressure"
 }
 
