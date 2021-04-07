@@ -1,31 +1,14 @@
 package com.example.studydesignpattern.category.observer
 
-import org.junit.After
+import com.example.studydesignpattern.BaseTest
 import org.junit.Assert.assertEquals
-import org.junit.Before
 import org.junit.Test
-import java.io.ByteArrayOutputStream
-import java.io.PrintStream
 
-class ObserverPatternActivityTest {
+class ObserverPatternActivityTest : BaseTest() {
 
-    private val standardOut: PrintStream? = System.out
-    private val outputStreamCaptor: ByteArrayOutputStream = ByteArrayOutputStream()
 
     private val sampleObserver1: Observer = SampleObserver1()
     private val sampleObserver2: Observer = SampleObserver2()
-
-
-    @Before
-    fun setUp() {
-        System.setOut(PrintStream(outputStreamCaptor))
-    }
-
-
-    @After
-    fun tearDown() {
-        System.setOut(standardOut)
-    }
 
 
     @Test

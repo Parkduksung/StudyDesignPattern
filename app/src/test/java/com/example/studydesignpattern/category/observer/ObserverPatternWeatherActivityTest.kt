@@ -1,31 +1,13 @@
 package com.example.studydesignpattern.category.observer
 
-import org.junit.After
-import org.junit.Assert.*
-import org.junit.Before
+import com.example.studydesignpattern.BaseTest
+import org.junit.Assert.assertEquals
 import org.junit.Test
-import java.io.ByteArrayOutputStream
-import java.io.PrintStream
 
-class ObserverPatternWeatherActivityTest {
-
-    private val standardOut: PrintStream? = System.out
-    private val outputStreamCaptor: ByteArrayOutputStream = ByteArrayOutputStream()
+class ObserverPatternWeatherActivityTest : BaseTest() {
 
     private val currentConditionDisplay: WeatherObserver =
         CurrentConditionDisplay(Weather("10", "10", "10"))
-
-
-    @Before
-    fun setUp() {
-        System.setOut(PrintStream(outputStreamCaptor))
-    }
-
-
-    @After
-    fun tearDown() {
-        System.setOut(standardOut)
-    }
 
     @Test
     fun `빈 옵저버일때 아무것도 출력되지 않아야한다`() {
