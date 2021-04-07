@@ -3,6 +3,8 @@ package com.example.studydesignpattern.category.factorymethod
 import android.util.Log
 import kotlin.Exception
 
+class FactoryMethodPattern
+
 interface Product {
     fun operation()
 }
