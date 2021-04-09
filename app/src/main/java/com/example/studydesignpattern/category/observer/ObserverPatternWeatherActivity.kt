@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
+import com.example.studydesignpattern.category.decorator.HorizontalScrollBarDecorator
+import com.example.studydesignpattern.category.decorator.SimpleWindow
+import com.example.studydesignpattern.category.decorator.VerticalScrollBarDecorator
 import com.example.studydesignpattern.category.factorymethod.Creator
 import com.example.studydesignpattern.category.factorymethod.CreatorFactory
 import com.example.studydesignpattern.category.factorymethod.Product1
@@ -32,9 +35,8 @@ class ObserverPatternWeatherActivity :
 //
 //        weatherData.notifyObserver()
 
-        val protoTypePatternA = ProtoTypePattern()
-
-        val protoTypePatternB = protoTypePatternA.clone()
+        val decorator = HorizontalScrollBarDecorator(VerticalScrollBarDecorator(SimpleWindow()))
+        Log.d("결과", decorator.getDescription())
 
     }
 
