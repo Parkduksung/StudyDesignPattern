@@ -5,6 +5,48 @@ import org.junit.Test
 class DecoratorExamTest {
 
 
+    @Test
+    fun `HouseBlend 를 만들었을때, 가격은 2000 이어야 한다`() {
+
+        val houseBlend = HouseBlend()
+
+        assert(houseBlend.cost() == 2000)
+
+    }
+
+    @Test
+    fun `HouseBlend 를 만들었을때, Beverage, Add HouseBlend 가 명세되어야 한다`() {
+
+        val houseBlend = HouseBlend()
+
+        assert(houseBlend.getDescription() == "Beverage, Add HouseCoffee")
+
+    }
+
+    @Test
+    fun `HouseBlend 에 Milk 를 추가하였을때, 2500 이어야 한다`() {
+
+        val houseBlendAddMilk = Milk(HouseBlend())
+
+        assert(houseBlendAddMilk.cost() == 2500)
+
+    }
+
+    @Test
+    fun `HouseBlend 에 Milk 를 추가하였을때, Beverage, Add HouseBlend, Add Milk 가 명세되어야 한다`(){
+
+        val houseBlendAddMilk = Milk(HouseBlend())
+
+        assert(houseBlendAddMilk.getDescription() == "Beverage, Add HouseBlend, Add Milk")
+    }
+
+    @Test
+    fun `HouseBlend 에 Milk 를 두개 추가하였을때, Beverage, Add HouseBlend, Add Milk, Add Milk 가 명세되어야 한다`(){
+
+        val houseBlendAddMilk = Milk(Milk(HouseBlend()))
+
+        assert(houseBlendAddMilk.getDescription() == "Beverage, Add HouseBlend, Add Milk, Add Milk")
+    }
 }
 
 
