@@ -37,7 +37,8 @@ class DecoratorExamTest {
 
         val houseCoffeeAddMilk = Milk(HouseCoffee())
 
-        assert(houseCoffeeAddMilk.getDescription() == "Beverage, Add HouseBlend, Add Milk")
+        print(houseCoffeeAddMilk.getDescription())
+        assert(houseCoffeeAddMilk.getDescription() == "Beverage, Add HouseCoffee, Add Milk")
     }
 
     @Test
@@ -45,7 +46,7 @@ class DecoratorExamTest {
 
         val houseCoffeeAddMilk = Milk(Milk(HouseCoffee()))
 
-        assert(houseCoffeeAddMilk.getDescription() == "Beverage, Add HouseBlend, Add Milk, Add Milk")
+        assert(houseCoffeeAddMilk.getDescription() == "Beverage, Add HouseCoffee, Add Milk, Add Milk")
     }
 }
 
