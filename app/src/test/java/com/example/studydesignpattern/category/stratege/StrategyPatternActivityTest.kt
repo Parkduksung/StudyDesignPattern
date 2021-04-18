@@ -17,8 +17,42 @@ class StrategyPatternActivityTest {
 
 }
 
-class SUV {
-    fun applyBrake(): String {
+class SUV : Car() {
+    override fun applyBrake(): String {
+        setBrakeBehavior(BrakeWithABS())
+        return getBrakeBehavior()
+    }
+}
+
+
+abstract class Car {
+
+    private lateinit var brakeBehavior: IBrakeBehavior
+
+    abstract fun applyBrake() : String
+
+    fun setBrakeBehavior(iBrakeBehavior: IBrakeBehavior) {
+        this.brakeBehavior = iBrakeBehavior
+    }
+
+    fun getBrakeBehavior() : String{
+        return brakeBehavior.brake()
+    }
+
+}
+
+interface IBrakeBehavior {
+    fun brake(): String
+}
+
+class BrakeWithABS : IBrakeBehavior {
+    override fun brake(): String {
         return "Brake With ABS"
+    }
+}
+
+class Brake : IBrakeBehavior {
+    override fun brake(): String {
+        return "Brake Only"
     }
 }
