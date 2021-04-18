@@ -11,8 +11,14 @@ class StrategyPatternActivityTest {
 
         val suv = SUV()
 
-        assert(suv.applyBrake == "Brake With ABS")
+        assert(suv.applyBrake() == "Brake With ABS")
 
     }
 
+}
+
+class SUV {
+    fun applyBrake(): String {
+        return "Brake With ABS"
+    }
 }
