@@ -17,6 +17,23 @@ class SingletonPatternTest {
         assert(objectA.getMessage() == objectB.getMessage())
     }
 
+    @Test
+    fun `싱글턴 구조로 만들어진 SingletonObject 의 객체 A의 message 값을 변경하였을 때, 객체 B의 message 값도 변경되어야 한다`() {
+
+        val objectA = SingletonObject.apply {
+            setMessage("objectA")
+        }
+
+        assert(objectA.getMessage() == "objectA")
+
+        val objectB = SingletonObject.apply {
+            setMessage("objectB")
+        }
+
+        assert(objectA.getMessage() == "objectB")
+
+    }
+
 }
 
 object SingletonObject {
