@@ -1,19 +1,19 @@
 package com.example.studydesignpattern.category.decorator
 
-abstract class BreadDecorator(private val bagel: Bagel) : Bread(){
+abstract class BreadDecorator(private val bread: Bread) : Bread(){
 
     override fun getDescription(): String {
-        return bagel.getDescription()
+        return bread.getDescription()
     }
 
     override fun getKcal(): Int {
-        return bagel.getKcal()
+        return bread.getKcal()
     }
 }
 
 
 
-class Toasted(bagel: Bagel) : BreadDecorator(bagel){
+class Toasted(bread: Bread) : BreadDecorator(bread){
 
     override fun getDescription() : String =
         super.getDescription() + " Add Toasted"

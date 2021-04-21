@@ -74,4 +74,5 @@ class DecoratorPractice {
         assert(ovenBagel.getKcal() == 260)
 
     }
+
 }

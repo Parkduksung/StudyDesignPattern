@@ -1,6 +1,6 @@
 package com.example.studydesignpattern.category.decorator
 
-class Oven(bagel: Bagel) : BreadDecorator(bagel){
+class Oven(bread: Bread) : BreadDecorator(bread){
 
     override fun getDescription(): String {
         return super.getDescription() + " Add Oven"
