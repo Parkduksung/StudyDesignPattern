@@ -75,4 +75,21 @@ class DecoratorPractice {
 
     }
 
+    @Test
+    fun `빵의 종류가 오븐후 토스트한 베이글일때, 칼로리가 310 이어야 한다`(){
+
+        val ovenAndToastedBagel = Toasted(Oven(Bagel()))
+
+        assert(ovenAndToastedBagel.getKcal() == 310)
+
+    }
+
+    @Test
+    fun `빵의 종류가 오븐후 토스트한 베이글일때, 명세서에 Description Add Bagel Add Oven Add Toasted 이라고 명세되어야 한다`(){
+
+        val ovenAndToastedBagel = Toasted(Oven(Bagel()))
+
+        assert(ovenAndToastedBagel.getDescription() == "Description Add Bagel Add Oven Add Toasted")
+
+    }
 }
