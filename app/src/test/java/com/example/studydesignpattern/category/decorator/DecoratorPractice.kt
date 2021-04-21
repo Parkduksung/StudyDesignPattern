@@ -56,4 +56,22 @@ class DecoratorPractice {
         assert(toastedBagel.getKcal() == 300)
 
     }
+
+    @Test
+    fun `빵의 종류가 오븐된 베이글일때, 명세서에 Description Add Bagel Add Oven 이라고 명세되어야 한다`() {
+
+        val ovenBagel = Oven(Bagel())
+
+        assert(ovenBagel.getDescription() == "Description Add Bagel Add Oven")
+
+    }
+
+    @Test
+    fun `빵의 종류가 오븐된 베이글일때, 칼로리가 260 이어야 한다`() {
+
+        val ovenBagel = Oven(Bagel())
+
+        assert(ovenBagel.getKcal() == 260)
+
+    }
 }
