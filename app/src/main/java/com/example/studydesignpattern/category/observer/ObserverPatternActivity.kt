@@ -2,6 +2,7 @@ package com.example.studydesignpattern.category.observer
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
 import com.example.studydesignpattern.databinding.ActivityWikiObserverBinding
@@ -25,6 +26,10 @@ class ObserverPatternActivity : BaseActivity<ActivityWikiObserverBinding>(R.layo
 
         concreteSubject.notifyObserver()
 
+
+        findViewById<Button>(R.id.button).apply {
+
+        }
 
     }
 }
