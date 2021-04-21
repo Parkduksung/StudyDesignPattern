@@ -14,11 +14,11 @@ class DecoratorPractice {
     }
 
     @Test
-    fun `빵의 종류를 베이글로 하였을때, 칼로리는 250 이 추가되어야 한다`() {
+    fun `빵의 종류를 베이글로 하였을때, 칼로리는 250 이어야 한다`() {
 
         val bagel = Bagel()
 
-        assert(bagel.getKcal() == 260)
+        assert(bagel.getKcal() == 250)
 
     }
 
@@ -31,7 +31,7 @@ class DecoratorPractice {
     }
 
     @Test
-    fun `빵의 종류를 번으로 하였을때, 칼로리는 150 이 추가되어야 한다`() {
+    fun `빵의 종류를 번으로 하였을때, 칼로리는 150 이어야 한다`() {
 
         val bun = Bun()
 
@@ -39,4 +39,21 @@ class DecoratorPractice {
 
     }
 
+    @Test
+    fun `빵의 종류가 토스트된 베이글일때, 명세서에 Description Add Bagel Add Toasted 이라고 명세되어야 한다`() {
+
+        val toastedBagel = Toasted(Bagel())
+
+        assert(toastedBagel.getDescription() == "Description Add Bagel Add Toasted")
+
+    }
+
+    @Test
+    fun `빵의 종류가 토스트된 베이글일때, 칼로리가 300 이어야 한다`() {
+
+        val toastedBagel = Toasted(Bagel())
+
+        assert(toastedBagel.getKcal() == 300)
+
+    }
 }

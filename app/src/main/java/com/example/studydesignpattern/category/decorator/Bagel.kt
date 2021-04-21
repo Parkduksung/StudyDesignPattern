@@ -24,5 +24,5 @@ class Bagel : Bread() {
         super.getDescription() + " Add Bagel"
 
     override fun getKcal(): Int =
-        super.getKcal() + 260
+        super.getKcal() + 250
 }
