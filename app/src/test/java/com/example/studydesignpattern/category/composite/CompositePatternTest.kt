@@ -32,7 +32,6 @@ class CompositePatternTest {
         composite.add(CompositeTextView())
 
         assert(composite.inflate() == "InflateCompositeTextView")
-
     }
 
 }
