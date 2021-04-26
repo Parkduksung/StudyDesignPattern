@@ -24,4 +24,15 @@ class CompositePatternTest {
 
     }
 
+    @Test
+    fun `Composite 에 CompositeTextView 를 add 하고 inflate 하였을때 값이 InflateCompositeTextView 이어야 한다` () {
+
+        val composite = Composite()
+
+        composite.add(CompositeTextView())
+
+        assert(composite.inflate() == "InflateCompositeTextView")
+
+    }
+
 }
