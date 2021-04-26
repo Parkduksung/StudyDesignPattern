@@ -9,7 +9,7 @@ class CompositePatternTest {
     @Test
     fun `CompositeTextView 의 getName 의 값이 CompositeTextView 이어야 한다`() {
 
-        val compositeTextView = CompositeTextView()
+        val compositeTextView = CompositeTextView("CompositeTextView")
 
         assert(compositeTextView.getName() == "CompositeTextView")
 
@@ -18,7 +18,7 @@ class CompositePatternTest {
     @Test
     fun `CompositeTextView 의 inflate 의 값은 InflateCompositeTextView 이어야 한다` (){
 
-        val compositeTextView = CompositeTextView()
+        val compositeTextView = CompositeTextView("CompositeTextView")
 
         assert(compositeTextView.inflate() == "InflateCompositeTextView")
 
@@ -27,9 +27,9 @@ class CompositePatternTest {
     @Test
     fun `Composite 에 CompositeTextView 를 add 하고 inflate 하였을때 값이 InflateCompositeTextView 이어야 한다` () {
 
-        val composite = Composite()
+        val composite = Composite("Composite")
 
-        composite.add(CompositeTextView())
+        composite.add(CompositeTextView("CompositeTextView"))
 
         assert(composite.inflate() == "InflateCompositeTextView")
     }

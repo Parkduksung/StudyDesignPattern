@@ -1,13 +1,13 @@
 package com.example.studydesignpattern.category.composite
 
-class Composite : Component {
+class Composite(private val name: String) : Component {
 
     private val componentList = mutableListOf<Component>()
 
     private var compositeString = ""
 
     override fun getName(): String {
-        TODO("Not yet implemented")
+        return name
     }
 
     override fun inflate(): String {
@@ -18,7 +18,7 @@ class Composite : Component {
         return compositeString
     }
 
-    fun add(component: Component) {
+    override fun add(component: Component) {
         componentList.add(component)
     }
 
