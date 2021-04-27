@@ -1,5 +1,5 @@
 package com.example.studydesignpattern.category.bridge
 
-class Car {
-    fun manufacture(): String = "CarProducedAssembled"
+class Car  : Vehicle(Produce(), Assemble()){
+    override fun manufacture(): String = "Car" + _workshop1.work() + _workshop2.work()
 }
