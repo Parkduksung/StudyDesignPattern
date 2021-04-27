@@ -1,6 +1,5 @@
 package com.example.studydesignpattern.category.bridge
 
-class Assemble {
-
-    fun work() : String = "Assembled"
+class Assemble : Workshop {
+    override fun work(): String = "Assembled"
 }

@@ -1,5 +1,9 @@
 package com.example.studydesignpattern.category.bridge
 
-class Produce {
-    fun work() : String = "Produced"
+interface Workshop {
+    fun work(): String
+}
+
+class Produce : Workshop {
+    override fun work(): String = "Produced"
 }
