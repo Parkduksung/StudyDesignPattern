@@ -21,5 +21,23 @@ class BridgePatternTest{
         assert(assemble.work() == "Assembled")
     }
 
+    @Test
+    fun `Bike 의 manufacture 의 값은 BikeProducedAssembled 이어야 한다`(){
+
+        val bike = Bike()
+
+        assert(bike.manufacture() == "BikeProducedAssembled")
+
+    }
+
+    @Test
+    fun `Car 의 manufacture 의 값은 CarProducedAssembled 이어야 한다`(){
+
+        val car = Car()
+
+        assert(car.manufacture() == "CarProducedAssembled")
+
+    }
+
 
 }
