@@ -24,6 +24,13 @@ class TemplateMethodPatternTest {
         assert(concreteClass.hock2() == "ABSTRACT hook2 implementation")
     }
 
+    @Test
+    fun `ConcreteClass 의 templateMethod 의 결과는 ABSTRACT hook1 implementation ABSTRACT hook2 implementation 이어야 한다` (){
 
+        val concreteClass = ConcreteClass()
+
+        assert(concreteClass.templateMethod() == "ABSTRACT hook1 implementation ABSTRACT hook2 implementation")
+
+    }
 
 }
