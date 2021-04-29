@@ -1,12 +1,20 @@
 package com.example.studydesignpattern.category.templatemethod
 
-class ConcreteClass {
 
-    fun hock1() : String {
+abstract class AbstractClass {
+
+    protected abstract fun hock1() : String
+    protected abstract fun hock2() : String
+}
+
+
+class ConcreteClass : AbstractClass(){
+
+    public override fun hock1() : String {
         return "ABSTRACT hook1 implementation"
     }
 
-    fun hock2() : String {
+    public override fun hock2() : String {
         return "ABSTRACT hook2 implementation"
     }
 }
