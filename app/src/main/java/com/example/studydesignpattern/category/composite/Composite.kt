@@ -1,24 +1,24 @@
 package com.example.studydesignpattern.category.composite
 
-class Composite(private val name: String) : Component {
+open class Composite(private val name: String) {
 
-    private val componentList = mutableListOf<Component>()
+    private val componentList = mutableListOf<Composite>()
 
-    private var compositeString = ""
+    private var compositeString = "Inflate"
 
-    override fun getName(): String {
+     fun getName(): String {
         return name
     }
 
-    override fun inflate(): String {
+     fun inflate(): String {
         componentList.forEach {
-            compositeString += it.inflate()
+            compositeString += it.getName()
         }
 
         return compositeString
     }
 
-    override fun add(component: Component) {
+     fun add(component: Composite) {
         componentList.add(component)
     }
 

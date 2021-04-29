@@ -25,7 +25,8 @@ class CompositePatternTest {
 
         val compositeTextView = CompositeTextView("CompositeTextView")
 
-        assert(compositeTextView.inflate() == "InflateCompositeTextView")
+        print(compositeTextView.inflate())
+        assert(compositeTextView.inflate() == "Inflate")
 
     }
 
@@ -50,7 +51,7 @@ class CompositePatternTest {
         composite.add(compositeTextView1)
         composite.add(compositeTextView2)
 
-        assert(composite.inflate() == "InflateCompositeTextView1InflateCompositeTextView2")
+        assert(composite.inflate() == "InflateCompositeTextView1CompositeTextView2")
     }
 
 }
