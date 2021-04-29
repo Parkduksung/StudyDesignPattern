@@ -5,6 +5,9 @@ abstract class AbstractClass {
 
     protected abstract fun hock1(): String
     protected abstract fun hock2(): String
+
+    open fun templateMethod(): String =
+        "${hock1()} ${hock2()}"
 }
 
 
@@ -17,7 +20,4 @@ class ConcreteClass : AbstractClass() {
     public override fun hock2(): String {
         return "ABSTRACT hook2 implementation"
     }
-
-    fun templateMethod(): String =
-        "${hock1()} ${hock2()}"
 }
