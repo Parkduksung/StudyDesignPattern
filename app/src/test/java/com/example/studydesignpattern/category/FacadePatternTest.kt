@@ -29,6 +29,28 @@ class FacadePatternTest {
     }
 
 
+    @Test
+    fun `FacadePattern 의 runCircle 값은 RunCircle 이어야 한다`(){
+
+        val facadePattern = FacadePattern()
+
+        assert(facadePattern.runCircle() == "RunCircle")
+    }
+
+    @Test
+    fun `FacadePattern 의 runRhombus 값은 RunRhombus 이어야 한다`(){
+        val facadePattern = FacadePattern()
+
+        assert(facadePattern.runRhombus() == "RunRhombus")
+    }
+
+    @Test
+    fun `FacadePattern 의 runTriangle 값은 RunTriangle 이어야 한다`(){
+        val facadePattern = FacadePattern()
+
+        assert(facadePattern.runTriangle() == "RunTriangle")
+    }
+
 
 
 }
