@@ -82,7 +82,7 @@ class StrategyPatternExam {
 
 
     @Test
-    fun `청동오리는 날수있고 우는소리가 Quack 인데 Runtime 시 날수 없고 우는소리가 Squeak 으로 알고리즘이 변경될수 있다` (){
+    fun `청동오리는 날수있고 우는소리가 Quack 인데 Runtime 시 날수 없고 우는소리가 Squeak 으로 알고리즘이 변경될수 있다`() {
 
         val bronzeDuck = BronzeDuck().apply {
             setQuackBehavior(Quack())
@@ -91,7 +91,7 @@ class StrategyPatternExam {
 
         assert(bronzeDuck.display() == "CanFly, Quack")
 
-        with(bronzeDuck){
+        with(bronzeDuck) {
             setQuackBehavior(Squeak())
             setFlyBehavior(FlyNoWay())
         }
