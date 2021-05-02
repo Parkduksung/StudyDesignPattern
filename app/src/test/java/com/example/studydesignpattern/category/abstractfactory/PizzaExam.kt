@@ -59,7 +59,7 @@ class PizzaExam {
     @Test
     fun `NYStyleCheesePizza prepare 값은 ThickCrushDoughAndMozzarellaCheese 이어야 한다`() {
 
-        val nyStyleCheesePizza = NYStyleCheesePizza()
+        val nyStyleCheesePizza = NYStyleCheesePizza(NYPizzaIngredientFactory())
 
         assert(nyStyleCheesePizza.prepare() == "ThickCrushDoughAndMozzarellaCheese")
 
