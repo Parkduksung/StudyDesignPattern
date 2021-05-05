@@ -1,6 +1,7 @@
 package com.example.studydesignpattern.book.androiddesingpattren.factory
 
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -11,6 +12,14 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class FactoryPatternActivityTest {
 
+    @Mock
+    lateinit var breadFactory: BreadFactory
+
+
+    @Before
+    fun setup() {
+        breadFactory = Mockito.mock(BreadFactory::class.java)
+    }
 
     @Test
     fun `Baguette 의 name 은 Baguette 이어야 한다`() {
@@ -70,7 +79,6 @@ class FactoryPatternActivityTest {
     @Test
     fun `BreadFactory 의 getBread 의 parameter 값이 Baguette 이면 생성된 Bread 의 이름이 Baguette 이어야 한다`() {
 
-        val breadFactory = Mockito.mock(BreadFactory::class.java)
         Mockito.`when`(breadFactory.getBread("Baguette")).thenReturn(Baguette())
 
         assert(breadFactory.getBread("Baguette").name() == "Baguette")
@@ -80,7 +88,6 @@ class FactoryPatternActivityTest {
     @Test
     fun `BreadFactory 의 getBread 의 parameter 값이 Baguette 이면 생성된 Bread 의 칼로리가 150 이어야 한다`() {
 
-        val breadFactory = Mockito.mock(BreadFactory::class.java)
         Mockito.`when`(breadFactory.getBread("Baguette")).thenReturn(Baguette())
 
         assert(breadFactory.getBread("Baguette").calories() == 150)
