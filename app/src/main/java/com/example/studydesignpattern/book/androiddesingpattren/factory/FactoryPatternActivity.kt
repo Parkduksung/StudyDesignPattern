@@ -11,3 +11,19 @@ class FactoryPatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.act
         super.onCreate(savedInstanceState)
     }
 }
+
+
+class Baguette {
+    fun name(): String = "Baguette"
+    fun calories(): Int = 150
+}
+
+class Roll {
+    fun name(): String = "Roll"
+    fun calories(): Int = 200
+}
+
+class Brioche {
+    fun name(): String = "Brioche"
+    fun calories(): Int = 175
+}
