@@ -93,5 +93,38 @@ class FactoryPatternActivityTest {
         assert(breadFactory.getBread("Baguette").calories() == 150)
     }
 
+    @Test
+    fun `BreadFactory 의 getBread 의 parameter 값이 Roll 이면 생성된 Bread 의 이름이 Roll 이어야 한다`() {
+
+        Mockito.`when`(breadFactory.getBread("Roll")).thenReturn(Roll())
+
+        assert(breadFactory.getBread("Roll").name() == "Roll")
+
+    }
+
+    @Test
+    fun `BreadFactory 의 getBread 의 parameter 값이 Roll 이면 생성된 Bread 의 칼로리가 200 이어야 한다`() {
+
+        Mockito.`when`(breadFactory.getBread("Roll")).thenReturn(Roll())
+
+        assert(breadFactory.getBread("Roll").calories() == 200)
+    }
+
+    @Test
+    fun `BreadFactory 의 getBread 의 parameter 값이 Brioche 이면 생성된 Bread 의 이름이 Brioche 이어야 한다`() {
+
+        Mockito.`when`(breadFactory.getBread("Brioche")).thenReturn(Brioche())
+
+        assert(breadFactory.getBread("Brioche").name() == "Brioche")
+
+    }
+
+    @Test
+    fun `BreadFactory 의 getBread 의 parameter 값이 Brioche 이면 생성된 Bread 의 칼로리가 175 이어야 한다`() {
+
+        Mockito.`when`(breadFactory.getBread("Brioche")).thenReturn(Brioche())
+
+        assert(breadFactory.getBread("Brioche").calories() == 175)
+    }
 
 }

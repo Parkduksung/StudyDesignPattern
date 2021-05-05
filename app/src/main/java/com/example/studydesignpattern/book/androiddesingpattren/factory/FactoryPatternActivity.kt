@@ -14,9 +14,11 @@ class FactoryPatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.act
 }
 
 abstract class BreadFactory {
-    fun getBread(sort: String) : Bread {
-        return when(sort){
+    fun getBread(sort: String): Bread {
+        return when (sort) {
             "Baguette" -> Baguette()
+            "Roll" -> Roll()
+            "Brioche" -> Brioche()
             else -> throw Exception()
         }
     }
