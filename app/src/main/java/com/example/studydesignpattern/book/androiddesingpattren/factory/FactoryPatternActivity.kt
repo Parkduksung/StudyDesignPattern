@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
 import com.example.studydesignpattern.databinding.ActivityFactoryBinding
+import java.lang.Exception
 
 class FactoryPatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.activity_factory) {
 
@@ -12,6 +13,14 @@ class FactoryPatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.act
     }
 }
 
+abstract class BreadFactory {
+    fun getBread(sort: String) : Bread {
+        return when(sort){
+            "Baguette" -> Baguette()
+            else -> throw Exception()
+        }
+    }
+}
 
 interface Bread {
     fun name(): String

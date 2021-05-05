@@ -67,16 +67,13 @@ class FactoryPatternActivityTest {
 
     }
 
-//    petService = Mockito.mock(PetService::class.java)
-//    Mockito.`when`(petService.listPets()).thenReturn(getPetList())
-
     @Test
     fun `BreadFactory 의 getBread 의 parameter 값이 Baguette 이면 생성된 Bread 의 이름이 Baguette 이어야 한다`() {
 
         val breadFactory = Mockito.mock(BreadFactory::class.java)
         Mockito.`when`(breadFactory.getBread("Baguette")).thenReturn(Baguette())
 
-        assert(breadFactory.name() == "Baguette")
+        assert(breadFactory.getBread("Baguette").name() == "Baguette")
 
     }
 
@@ -86,7 +83,7 @@ class FactoryPatternActivityTest {
         val breadFactory = Mockito.mock(BreadFactory::class.java)
         Mockito.`when`(breadFactory.getBread("Baguette")).thenReturn(Baguette())
 
-        assert(breadFactory.calories() == 150)
+        assert(breadFactory.getBread("Baguette").calories() == 150)
     }
 
 
