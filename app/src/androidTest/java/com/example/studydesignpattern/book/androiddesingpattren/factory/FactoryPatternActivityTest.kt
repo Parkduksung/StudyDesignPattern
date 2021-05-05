@@ -1,5 +1,6 @@
 package com.example.studydesignpattern.book.androiddesingpattren.factory
 
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -13,15 +14,15 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class FactoryPatternActivityUiTest {
 
+
     @Test
     fun should_have_3button_2textView_when_start() {
+
+        ActivityScenario.launch(FactoryPatternActivity::class.java)
 
         Espresso.onView(withId(R.id.baguette_button)).check(matches(isDisplayed()))
         Espresso.onView(withId(R.id.brioche_button)).check(matches(isDisplayed()))
         Espresso.onView(withId(R.id.roll_button)).check(matches(isDisplayed()))
-
-        Espresso.onView(withId(R.id.bread_name_tv)).check(matches(isDisplayed()))
-        Espresso.onView(withId(R.id.bread_calories_tv)).check(matches(isDisplayed()))
 
         Espresso.onView(withId(R.id.bread_name_tv)).check(matches(withText("")))
         Espresso.onView(withId(R.id.bread_calories_tv)).check(matches(withText("")))
@@ -30,6 +31,9 @@ class FactoryPatternActivityUiTest {
 
     @Test
     fun should_show_right_name_and_calories_when_click_baguette_button() {
+
+        ActivityScenario.launch(FactoryPatternActivity::class.java)
+
         Espresso.onView(ViewMatchers.withId(R.id.baguette_button)).perform(ViewActions.click())
 
         Espresso.onView(ViewMatchers.withId(R.id.bread_name_tv))
@@ -40,6 +44,9 @@ class FactoryPatternActivityUiTest {
 
     @Test
     fun should_show_right_name_and_calories_when_click_brioche_button() {
+
+        ActivityScenario.launch(FactoryPatternActivity::class.java)
+
         Espresso.onView(ViewMatchers.withId(R.id.brioche_button)).perform(ViewActions.click())
 
         Espresso.onView(ViewMatchers.withId(R.id.bread_name_tv))
@@ -50,6 +57,9 @@ class FactoryPatternActivityUiTest {
 
     @Test
     fun should_show_right_name_and_calories_when_click_roll_button() {
+
+        ActivityScenario.launch(FactoryPatternActivity::class.java)
+
         Espresso.onView(ViewMatchers.withId(R.id.roll_button)).perform(ViewActions.click())
 
         Espresso.onView(ViewMatchers.withId(R.id.bread_name_tv))
