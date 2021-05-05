@@ -38,6 +38,6 @@ class DesignPatternAdapter : RecyclerView.Adapter<DesignPatternViewHolder>() {
     }
 
     interface PatternClickListener {
-        fun onClick(string: String)
+        fun onClick(patternName: String)
     }
 }

@@ -2,7 +2,6 @@ package com.example.studydesignpattern.book.androiddesingpattren
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
 import com.example.studydesignpattern.book.androiddesingpattren.factory.FactoryPatternActivity
@@ -25,8 +24,8 @@ class DesignPatternAndBestPracticeActivity :
         }
     }
 
-    override fun onClick(string: String) {
-        when (string) {
+    override fun onClick(patternName: String) {
+        when (patternName) {
             "Factory" -> startFactoryActivity()
         }
     }
