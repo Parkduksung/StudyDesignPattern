@@ -13,17 +13,22 @@ class FactoryPatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.act
 }
 
 
-class Baguette {
-    fun name(): String = "Baguette"
-    fun calories(): Int = 150
+interface Bread {
+    fun name(): String
+    fun calories(): Int
 }
 
-class Roll {
-    fun name(): String = "Roll"
-    fun calories(): Int = 200
+class Baguette : Bread {
+    override fun name(): String = "Baguette"
+    override fun calories(): Int = 150
 }
 
-class Brioche {
-    fun name(): String = "Brioche"
-    fun calories(): Int = 175
+class Roll : Bread {
+    override fun name(): String = "Roll"
+    override fun calories(): Int = 200
+}
+
+class Brioche : Bread {
+    override fun name(): String = "Brioche"
+    override fun calories(): Int = 175
 }
