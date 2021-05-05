@@ -7,49 +7,44 @@ import com.example.studydesignpattern.R
 import com.example.studydesignpattern.databinding.ActivityFactoryBinding
 import java.lang.Exception
 
-class FactoryPatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.activity_factory),
-    View.OnClickListener {
+class FactoryPatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.activity_factory) {
 
     private lateinit var bread: Bread
-
-    override fun onClick(v: View?) {
-        when (v?.id) {
-
-            R.id.baguette_button -> {
-                bread = BreadFactoryImpl().getBread("Baguette")
-
-                binding.breadNameTv.text = bread.name()
-                binding.breadCaloriesTv.text = bread.calories().toString()
-            }
-
-            R.id.brioche_button -> {
-                bread = BreadFactoryImpl().getBread("Brioche")
-
-                binding.breadNameTv.text = bread.name()
-                binding.breadCaloriesTv.text = bread.calories().toString()
-
-            }
-
-            R.id.roll_button -> {
-                bread = BreadFactoryImpl().getBread("Roll")
-
-                binding.breadNameTv.text = bread.name()
-                binding.breadCaloriesTv.text = bread.calories().toString()
-
-            }
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         startView()
     }
 
-    private fun startView() {
-        binding.baguetteButton.setOnClickListener(this)
-        binding.rollButton.setOnClickListener(this)
-        binding.briocheButton.setOnClickListener(this)
+    private fun setBreadInfo(name: String) {
+        bread = BreadFactoryImpl().getBread(name)
+
+        binding.breadNameTv.text = bread.name()
+        binding.breadCaloriesTv.text = bread.calories().toString()
+
     }
+
+    private fun startView() {
+        binding.baguetteButton.setOnClickListener(breadButtonClickListener)
+        binding.rollButton.setOnClickListener(breadButtonClickListener)
+        binding.briocheButton.setOnClickListener(breadButtonClickListener)
+    }
+
+    private val breadButtonClickListener = View.OnClickListener { v ->
+        when (v?.id) {
+            R.id.baguette_button -> {
+                setBreadInfo("Baguette")
+            }
+            R.id.brioche_button -> {
+                setBreadInfo("Brioche")
+            }
+
+            R.id.roll_button -> {
+                setBreadInfo("Roll")
+            }
+        }
+    }
+
 
 }
 

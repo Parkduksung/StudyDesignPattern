@@ -18,11 +18,13 @@ class FactoryPatternActivityUiTest {
     @Test
     fun should_have_3button_2textView_when_start() {
 
-        ActivityScenario.launch(FactoryPatternActivity::class.java)
+        startActivity()
 
         Espresso.onView(withId(R.id.baguette_button)).check(matches(isDisplayed()))
         Espresso.onView(withId(R.id.brioche_button)).check(matches(isDisplayed()))
         Espresso.onView(withId(R.id.roll_button)).check(matches(isDisplayed()))
+
+        //신기한게 textView 가 존재하는 하나 "" 일 경우에 isDisplayed 되면은 안보인다...
 
         Espresso.onView(withId(R.id.bread_name_tv)).check(matches(withText("")))
         Espresso.onView(withId(R.id.bread_calories_tv)).check(matches(withText("")))
@@ -32,7 +34,7 @@ class FactoryPatternActivityUiTest {
     @Test
     fun should_show_right_name_and_calories_when_click_baguette_button() {
 
-        ActivityScenario.launch(FactoryPatternActivity::class.java)
+        startActivity()
 
         Espresso.onView(ViewMatchers.withId(R.id.baguette_button)).perform(ViewActions.click())
 
@@ -45,7 +47,7 @@ class FactoryPatternActivityUiTest {
     @Test
     fun should_show_right_name_and_calories_when_click_brioche_button() {
 
-        ActivityScenario.launch(FactoryPatternActivity::class.java)
+        startActivity()
 
         Espresso.onView(ViewMatchers.withId(R.id.brioche_button)).perform(ViewActions.click())
 
@@ -58,7 +60,8 @@ class FactoryPatternActivityUiTest {
     @Test
     fun should_show_right_name_and_calories_when_click_roll_button() {
 
-        ActivityScenario.launch(FactoryPatternActivity::class.java)
+
+        startActivity()
 
         Espresso.onView(ViewMatchers.withId(R.id.roll_button)).perform(ViewActions.click())
 
@@ -66,5 +69,9 @@ class FactoryPatternActivityUiTest {
             .check(matches(ViewMatchers.withText("Roll")))
         Espresso.onView(ViewMatchers.withId(R.id.bread_calories_tv))
             .check(matches(ViewMatchers.withText("200")))
+    }
+
+    private fun startActivity() {
+        ActivityScenario.launch(FactoryPatternActivity::class.java)
     }
 }
