@@ -1,9 +1,11 @@
 package com.example.studydesignpattern.book.androiddesingpattren
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
+import com.example.studydesignpattern.book.androiddesingpattren.factory.FactoryPatternActivity
 import com.example.studydesignpattern.databinding.ActivityMainBinding
 
 class DesignPatternAndBestPracticeActivity :
@@ -24,7 +26,9 @@ class DesignPatternAndBestPracticeActivity :
     }
 
     override fun onClick(string: String) {
-        Toast.makeText(this, string, Toast.LENGTH_LONG).show()
+        when (string) {
+            "Factory" -> startFactoryActivity()
+        }
     }
 
     companion object {
@@ -34,4 +38,11 @@ class DesignPatternAndBestPracticeActivity :
             "Decorator"
         )
     }
+
+
+    private fun startFactoryActivity() {
+        startActivity(Intent(this, FactoryPatternActivity::class.java))
+    }
+
+
 }
