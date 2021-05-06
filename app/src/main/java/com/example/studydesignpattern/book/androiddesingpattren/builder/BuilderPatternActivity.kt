@@ -33,3 +33,28 @@ class Bun : Bread {
         return 250
     }
 }
+
+interface Filling {
+    fun name() : String
+    fun calories() : Int
+}
+
+class CreamCheese : Filling {
+    override fun name(): String {
+        return "CreamCheese"
+    }
+
+    override fun calories(): Int {
+        return 300
+    }
+}
+
+class SmokedSalmon : Filling {
+    override fun name(): String {
+        return "SmokedSalmon"
+    }
+
+    override fun calories(): Int {
+        return 400
+    }
+}
