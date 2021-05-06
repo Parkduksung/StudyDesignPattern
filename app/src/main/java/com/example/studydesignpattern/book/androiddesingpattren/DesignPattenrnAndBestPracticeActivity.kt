@@ -1,9 +1,11 @@
 package com.example.studydesignpattern.book.androiddesingpattren
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
+import com.example.studydesignpattern.book.androiddesingpattren.builder.BuilderPatternActivity
 import com.example.studydesignpattern.book.androiddesingpattren.factory.FactoryPatternActivity
 import com.example.studydesignpattern.databinding.ActivityMainBinding
 
@@ -27,21 +29,26 @@ class DesignPatternAndBestPracticeActivity :
     override fun onClick(patternName: String) {
         when (patternName) {
             "Factory" -> startFactoryActivity()
+            "Builder" -> startBuilderActivity()
         }
     }
 
     companion object {
         private val patternList = listOf(
             "Factory",
-            "Strategy",
-            "Decorator"
+            "Builder"
         )
     }
+
+
 
 
     private fun startFactoryActivity() {
         startActivity(Intent(this, FactoryPatternActivity::class.java))
     }
 
+    private fun startBuilderActivity() {
+        startActivity(Intent(this, BuilderPatternActivity::class.java))
+    }
 
 }
