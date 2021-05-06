@@ -77,4 +77,31 @@ class BuilderPatternActivityTest {
         assert(sandwich.getSandwich() == "Description Add Bun")
     }
 
+    @Test
+    fun `SandwichBuilder 에 Bun 으로 된 Sandwich 에 CreamCheese 를 추가하면 칼로리가 500이어야 한다`() {
+
+        val sandwichBuilder = SandwichBuilder()
+
+        val sandwich = Sandwich().apply {
+            addIngredient(Bun())
+        }
+
+        assert(sandwichBuilder.build(sandwich, CreamCheese()).getCalories() == 500)
+
+    }
+
+    @Test
+    fun `SandwichBuilder 에 Bun 으로 된 Sandwich 에 CreamCheese 를 추가하면 명세서가 Description Add Bun Add CreamCheese 이어야 한다`() {
+
+        val sandwichBuilder = SandwichBuilder()
+
+        val sandwich = Sandwich().apply {
+            addIngredient(Bun())
+        }
+
+        assert(sandwichBuilder.build(sandwich, CreamCheese()).getSandwich() == "Description Add Bun Add CreamCheese")
+
+    }
+
+
 }
