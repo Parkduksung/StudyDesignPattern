@@ -1,6 +1,5 @@
 package com.example.studydesignpattern.book.androiddesingpattren
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import com.example.studydesignpattern.BaseActivity
@@ -39,8 +38,6 @@ class DesignPatternAndBestPracticeActivity :
             "Builder"
         )
     }
-
-
 
 
     private fun startFactoryActivity() {
