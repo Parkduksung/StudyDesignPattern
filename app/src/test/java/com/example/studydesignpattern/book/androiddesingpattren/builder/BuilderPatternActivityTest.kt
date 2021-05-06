@@ -30,4 +30,28 @@ class BuilderPatternActivityTest {
     }
 
 
+    @Test
+    fun `CreamCheese 의 name 은 CreamCheese 이다`() {
+        val creamCheese = CreamCheese()
+        assert(creamCheese.name() == "CreamCheese")
+    }
+
+    @Test
+    fun `CreamCheese 의 calories 는 300 이다`() {
+        val creamCheese = CreamCheese()
+        assert(creamCheese.calories() == 300)
+    }
+
+    @Test
+    fun `SmokedSalmon 의 name 은 SmokedSalmon 이다`() {
+        val smokedSalmon = SmokedSalmon()
+        assert(smokedSalmon.name() == "SmokedSalmon")
+    }
+
+    @Test
+    fun `SmokedSalmon 의 calories 는 400 이다`() {
+        val smokedSalmon = SmokedSalmon()
+        assert(smokedSalmon.calories() == 400)
+    }
+
 }
