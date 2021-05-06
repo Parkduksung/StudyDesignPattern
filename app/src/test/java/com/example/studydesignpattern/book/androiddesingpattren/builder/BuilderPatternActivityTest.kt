@@ -54,4 +54,25 @@ class BuilderPatternActivityTest {
         assert(smokedSalmon.calories() == 400)
     }
 
+    @Test
+    fun `Sandwich 의 addIngredient 에 Bun 을 추가하면 getCalories 값은 250 이어야 한다`() {
+
+        val sandwich = Sandwich().apply {
+            addIngredient(Bun())
+        }
+
+        assert(sandwich.getCalories() == 250)
+
+    }
+
+    @Test
+    fun `Sandwich 의 addIngredient 에 Bun 을 추가하면 getSandwich 값은 Add Bun 이어야 한다`() {
+
+        val sandwich = Sandwich().apply {
+            addIngredient(Bun())
+        }
+
+        assert(sandwich.getSandwich() == "Description Add Bun")
+    }
+
 }
