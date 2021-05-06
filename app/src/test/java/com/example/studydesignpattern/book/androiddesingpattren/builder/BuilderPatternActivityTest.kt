@@ -78,7 +78,7 @@ class BuilderPatternActivityTest {
     }
 
     @Test
-    fun `SandwichBuilder 에 Bun 으로 된 Sandwich 에 CreamCheese 를 추가하면 칼로리가 500이어야 한다`() {
+    fun `SandwichBuilder 에 Bun 으로 된 Sandwich 에 CreamCheese 를 추가하면 칼로리가 550이어야 한다`() {
 
         val sandwichBuilder = SandwichBuilder()
 
@@ -86,7 +86,7 @@ class BuilderPatternActivityTest {
             addIngredient(Bun())
         }
 
-        assert(sandwichBuilder.build(sandwich, CreamCheese()).getCalories() == 500)
+        assert(sandwichBuilder.build(sandwich, CreamCheese()).getCalories() == 550)
 
     }
 

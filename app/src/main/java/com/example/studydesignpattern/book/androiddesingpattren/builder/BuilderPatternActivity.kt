@@ -12,6 +12,15 @@ class BuilderPatternActivity : BaseActivity<ActivityBuilderBinding>(R.layout.act
     }
 }
 
+
+class SandwichBuilder {
+    fun build(sandwich: Sandwich, ingredient: Ingredient): Sandwich {
+        sandwich.addIngredient(ingredient)
+        return sandwich
+    }
+}
+
+
 class Sandwich {
 
     private val ingredientList = mutableListOf<Ingredient>()
