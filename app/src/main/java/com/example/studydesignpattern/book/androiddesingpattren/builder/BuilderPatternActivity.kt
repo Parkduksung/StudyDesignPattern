@@ -12,6 +12,26 @@ class BuilderPatternActivity : BaseActivity<ActivityBuilderBinding>(R.layout.act
     }
 }
 
+class Sandwich {
+
+    private val ingredientList = mutableListOf<Ingredient>()
+
+    private val description = "Description"
+
+    fun addIngredient(ingredient: Ingredient) {
+        ingredientList.add(ingredient)
+    }
+
+    fun getCalories(): Int =
+        ingredientList.map { it.calories() }.sum()
+
+
+    fun getSandwich(): String {
+        return description + ingredientList.joinToString("") { " Add " + it.name() }
+    }
+
+}
+
 
 interface Ingredient {
     fun name(): String

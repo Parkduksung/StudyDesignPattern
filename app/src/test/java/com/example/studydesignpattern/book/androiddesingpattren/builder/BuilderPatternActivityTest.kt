@@ -72,6 +72,8 @@ class BuilderPatternActivityTest {
             addIngredient(Bun())
         }
 
+        print(sandwich.getSandwich())
+
         assert(sandwich.getSandwich() == "Description Add Bun")
     }
 
