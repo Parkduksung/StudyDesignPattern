@@ -3,7 +3,6 @@ package com.example.studydesignpattern.book.androiddesingpattren.builder
 import android.os.Bundle
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
-import com.example.studydesignpattern.book.androiddesingpattren.factory.Bread
 import com.example.studydesignpattern.databinding.ActivityBuilderBinding
 
 class BuilderPatternActivity : BaseActivity<ActivityBuilderBinding>(R.layout.activity_builder) {
@@ -14,7 +13,19 @@ class BuilderPatternActivity : BaseActivity<ActivityBuilderBinding>(R.layout.act
 }
 
 
-class Bagel : Bread {
+interface Ingredient {
+    fun name(): String
+    fun calories(): Int
+}
+
+abstract class Bread : Ingredient {
+
+    abstract override fun name(): String
+    abstract override fun calories(): Int
+}
+
+
+class Bagel : Bread() {
     override fun name(): String {
         return "Bagel"
     }
@@ -24,7 +35,7 @@ class Bagel : Bread {
     }
 }
 
-class Bun : Bread {
+class Bun : Bread() {
     override fun name(): String {
         return "Bun"
     }
@@ -34,12 +45,12 @@ class Bun : Bread {
     }
 }
 
-interface Filling {
-    fun name() : String
-    fun calories() : Int
+abstract class Filling : Ingredient {
+    abstract override fun name(): String
+    abstract override fun calories(): Int
 }
 
-class CreamCheese : Filling {
+class CreamCheese : Filling() {
     override fun name(): String {
         return "CreamCheese"
     }
@@ -49,7 +60,7 @@ class CreamCheese : Filling {
     }
 }
 
-class SmokedSalmon : Filling {
+class SmokedSalmon : Filling() {
     override fun name(): String {
         return "SmokedSalmon"
     }
