@@ -11,3 +11,48 @@ class FacadePatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.acti
         super.onCreate(savedInstanceState)
     }
 }
+
+
+
+
+
+
+interface Equipment {
+    fun switchOn(): String
+    fun switchOff(): String
+}
+
+class Monitor : Equipment {
+
+    override fun switchOn(): String {
+        return "Red"
+    }
+
+    override fun switchOff(): String {
+        return "Black"
+    }
+}
+
+class Mouse : Equipment {
+
+    override fun switchOn(): String {
+        return "Red"
+    }
+
+    override fun switchOff(): String {
+        return "Black"
+    }
+
+}
+
+class Keyboard : Equipment {
+
+    override fun switchOn(): String {
+        return "Red"
+    }
+
+    override fun switchOff(): String {
+        return "Black"
+    }
+
+}

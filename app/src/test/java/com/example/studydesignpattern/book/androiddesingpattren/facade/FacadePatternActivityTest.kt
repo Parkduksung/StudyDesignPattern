@@ -55,5 +55,21 @@ class FacadePatternActivityTest {
         assert(monitor.switchOff() == "Black")
     }
 
+    @Test
+    fun `FacadeComputer 의 mouseSwitchOn 일때 값은 Red 이어야 한다`(){
+
+        val facadeComputer = FacadeComputer()
+
+        assert(facadeComputer.mouseSwitchOn() == "Red")
+
+    }
+
+
+    fun `FacadeComputer 의 mouseSwitchOff 일때 값은 Red 이어야 한다`(){
+        val facadeComputer = FacadeComputer()
+
+        assert(facadeComputer.mouseSwitchOff() == "Black")
+    }
+
 }
 
