@@ -1,6 +1,7 @@
 package com.example.studydesignpattern.book.androiddesingpattren.strategy
 
 import android.os.Bundle
+import android.widget.Button
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
 import com.example.studydesignpattern.databinding.ActivityStrategyPatternBinding
@@ -8,8 +9,31 @@ import com.example.studydesignpattern.databinding.ActivityStrategyPatternBinding
 class StrategyPatternActivity :
     BaseActivity<ActivityStrategyPatternBinding>(R.layout.activity_strategy_pattern) {
 
+
+    private val drinkImpl = DrinkImpl()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        binding.sojuButton.setOnClickListener {
+            drinkImpl.setDrink(Soju())
+            binding.alcoholTv.text = drinkImpl.alcohol().toString()
+            binding.priceTv.text = drinkImpl.price().toString()
+        }
+
+        binding.bearButton.setOnClickListener {
+            drinkImpl.setDrink(Bear())
+            binding.alcoholTv.text = drinkImpl.alcohol().toString()
+            binding.priceTv.text = drinkImpl.price().toString()
+        }
+
+        binding.whiskeyButton.setOnClickListener {
+            drinkImpl.setDrink(Whiskey())
+            binding.alcoholTv.text = drinkImpl.alcohol().toString()
+            binding.priceTv.text = drinkImpl.price().toString()
+        }
+
     }
 }
 
