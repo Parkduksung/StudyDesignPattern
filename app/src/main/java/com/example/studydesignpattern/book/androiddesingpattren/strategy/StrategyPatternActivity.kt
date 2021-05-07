@@ -13,6 +13,27 @@ class StrategyPatternActivity :
     }
 }
 
+class DrinkImpl : Drink {
+
+    private lateinit var drink: Drink
+
+    fun setDrink(drink: Drink) {
+        this.drink = drink
+    }
+
+    fun getDrink(): Drink = drink
+
+
+    override fun alcohol(): Int {
+        return getDrink().alcohol()
+    }
+
+    override fun price(): Int {
+        return getDrink().price()
+    }
+}
+
+
 interface Drink {
     fun alcohol(): Int
     fun price(): Int

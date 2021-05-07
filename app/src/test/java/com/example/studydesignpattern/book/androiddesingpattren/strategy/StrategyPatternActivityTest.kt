@@ -90,5 +90,20 @@ class StrategyPatternActivityTest {
         assert(drinkImpl.getDrink().price() == 30000)
     }
 
+    @Test
+    fun `DrinkImpl 에 setDrink 를 Soju 이고 나서 setDrink 값을 Whiskey 로 바꾸게 되면 alcohol 이 40 가격이 30000 이어야 한다`() {
+
+        val drinkImpl = DrinkImpl().apply {
+            setDrink(Soju())
+        }
+
+        assert(drinkImpl.getDrink().alcohol() == 18)
+        assert(drinkImpl.getDrink().price() == 3000)
+
+        drinkImpl.setDrink(Whiskey())
+
+        assert(drinkImpl.getDrink().alcohol() == 40)
+        assert(drinkImpl.getDrink().price() == 30000)
+    }
 
 }
