@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
 import com.example.studydesignpattern.book.androiddesingpattren.builder.BuilderPatternActivity
+import com.example.studydesignpattern.book.androiddesingpattren.facade.FacadePatternActivity
 import com.example.studydesignpattern.book.androiddesingpattren.factory.FactoryPatternActivity
 import com.example.studydesignpattern.book.androiddesingpattren.singleton.SingletonPatternActivity
 import com.example.studydesignpattern.book.androiddesingpattren.strategy.StrategyPatternActivity
@@ -33,15 +34,18 @@ class DesignPatternAndBestPracticeActivity :
             "Builder" -> startBuilderActivity()
             "Singleton" -> startSingletonActivity()
             "Strategy" -> startStrategyActivity()
+            "Facade" -> startFacadeActivity()
         }
     }
+
 
     companion object {
         private val patternList = listOf(
             "Factory",
             "Builder",
             "Singleton",
-            "Strategy"
+            "Strategy",
+            "Facade"
         )
     }
 
@@ -62,4 +66,7 @@ class DesignPatternAndBestPracticeActivity :
         startActivity(Intent(this, StrategyPatternActivity::class.java))
     }
 
+    private fun startFacadeActivity() {
+        startActivity(Intent(this, FacadePatternActivity::class.java))
+    }
 }

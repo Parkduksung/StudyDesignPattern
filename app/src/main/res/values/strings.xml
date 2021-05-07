@@ -3,7 +3,7 @@
     <string name="bread_baguette">Baguette</string>
     <string name="bread_brioche">Brioche</string>
     <string name="bread_roll">Roll</string>
-    <string name="drink_soju">drink_soju</string>
-    <string name="drink_bear">drink_bear</string>
-    <string name="drink_whiskey">drink_whiskey</string>
+    <string name="drink_soju">soju</string>
+    <string name="drink_bear">bear</string>
+    <string name="drink_whiskey">whiskey</string>
 </resources>
