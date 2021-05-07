@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyDesignPattern">
-        <activity android:name=".book.androiddesingpattren.DesignPatternAndBestPracticeActivity">
+        <activity android:name=".book.androiddesingpattren.singleton.SingletonPatternActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,6 +19,7 @@
 
         <activity android:name=".book.androiddesingpattren.factory.FactoryPatternActivity" />
         <activity android:name=".book.androiddesingpattren.builder.BuilderPatternActivity" />
+        <activity android:name=".book.androiddesingpattren.singleton.SingletonSubActivity" />
     </application>
 
 </manifest>
