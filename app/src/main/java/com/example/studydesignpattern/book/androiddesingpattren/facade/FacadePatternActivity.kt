@@ -16,9 +16,17 @@ class FacadePatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.acti
 class FacadeComputer {
 
     private val mouse: Mouse = Mouse()
+    private val keyboard = Keyboard()
+    private val monitor = Monitor()
 
     fun mouseSwitchOn(): String = mouse.switchOn()
     fun mouseSwitchOff(): String = mouse.switchOff()
+
+    fun keyboardSwitchOn(): String = keyboard.switchOn()
+    fun keyboardSwitchOff(): String = keyboard.switchOff()
+
+    fun monitorSwitchOn(): String = monitor.switchOn()
+    fun monitorSwitchOff(): String = monitor.switchOff()
 
 }
 

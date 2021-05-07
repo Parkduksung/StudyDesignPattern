@@ -54,6 +54,42 @@ class FacadePatternActivityTest {
     }
 
     @Test
+    fun `FacadeComputer 의 monitorSwitchOn 일때 값은 Red 이어야 한다`() {
+
+        val facadeComputer = FacadeComputer()
+
+        assert(facadeComputer.monitorSwitchOn() == "Red")
+
+    }
+
+
+    @Test
+    fun `FacadeComputer 의 monitorSwitchOff 일때 값은 Black 이어야 한다`() {
+
+        val facadeComputer = FacadeComputer()
+
+        assert(facadeComputer.monitorSwitchOff() == "Black")
+    }
+
+    @Test
+    fun `FacadeComputer 의 keyboardSwitchOn 일때 값은 Red 이어야 한다`() {
+
+        val facadeComputer = FacadeComputer()
+
+        assert(facadeComputer.keyboardSwitchOn() == "Red")
+
+    }
+
+
+    @Test
+    fun `FacadeComputer 의 keyboardSwitchOff 일때 값은 Black 이어야 한다`() {
+
+        val facadeComputer = FacadeComputer()
+
+        assert(facadeComputer.keyboardSwitchOff() == "Black")
+    }
+
+    @Test
     fun `FacadeComputer 의 mouseSwitchOn 일때 값은 Red 이어야 한다`() {
 
         val facadeComputer = FacadeComputer()
@@ -63,12 +99,15 @@ class FacadePatternActivityTest {
     }
 
 
+    @Test
     fun `FacadeComputer 의 mouseSwitchOff 일때 값은 Black 이어야 한다`() {
 
         val facadeComputer = FacadeComputer()
 
         assert(facadeComputer.mouseSwitchOff() == "Black")
     }
+
+
 
 }
 
