@@ -6,6 +6,7 @@ import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
 import com.example.studydesignpattern.book.androiddesingpattren.builder.BuilderPatternActivity
 import com.example.studydesignpattern.book.androiddesingpattren.factory.FactoryPatternActivity
+import com.example.studydesignpattern.book.androiddesingpattren.singleton.SingletonPatternActivity
 import com.example.studydesignpattern.databinding.ActivityMainBinding
 
 class DesignPatternAndBestPracticeActivity :
@@ -29,13 +30,15 @@ class DesignPatternAndBestPracticeActivity :
         when (patternName) {
             "Factory" -> startFactoryActivity()
             "Builder" -> startBuilderActivity()
+            "Singleton" -> startSingletonActivity()
         }
     }
 
     companion object {
         private val patternList = listOf(
             "Factory",
-            "Builder"
+            "Builder",
+            "Singleton"
         )
     }
 
@@ -46,6 +49,10 @@ class DesignPatternAndBestPracticeActivity :
 
     private fun startBuilderActivity() {
         startActivity(Intent(this, BuilderPatternActivity::class.java))
+    }
+
+    private fun startSingletonActivity() {
+        startActivity(Intent(this, SingletonPatternActivity::class.java))
     }
 
 }
