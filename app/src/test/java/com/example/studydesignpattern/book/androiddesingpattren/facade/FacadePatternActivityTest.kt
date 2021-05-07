@@ -1,0 +1,59 @@
+package com.example.studydesignpattern.book.androiddesingpattren.facade
+
+import android.graphics.Color
+import org.junit.Assert.*
+import org.junit.Test
+
+
+class FacadePatternActivityTest {
+
+    @Test
+    fun `Mouse 의 switchOn 값은 Red 이어야 한다`() {
+
+        val mouse = Mouse()
+
+        assert(mouse.switchOn() == "Red")
+    }
+
+    @Test
+    fun `Mouse 의 switchOff 값은 Black 이어야 한다`() {
+
+        val mouse = Mouse()
+
+        assert(mouse.switchOff() == "Black")
+    }
+
+    @Test
+    fun `Keyboard 의 switchOn 값은 Red 이어야 한다`() {
+
+        val keyboard = Keyboard()
+
+        assert(keyboard.switchOn() == "Red")
+    }
+
+    @Test
+    fun `Keyboard 의 switchOff 값은 Black 이어야 한다`() {
+
+        val keyboard = Keyboard()
+
+        assert(keyboard.switchOff() == "Black")
+    }
+
+    @Test
+    fun `Monitor 의 switchOn 값은 Red 이어야 한다`() {
+
+        val monitor = Monitor()
+
+        assert(monitor.switchOn() == "Red")
+    }
+
+    @Test
+    fun `Monitor 의 switchOff 값은 Black 이어야 한다`() {
+
+        val monitor = Monitor()
+
+        assert(monitor.switchOff() == "Black")
+    }
+
+}
+
