@@ -1,20 +1,26 @@
 package com.example.studydesignpattern.book.androiddesingpattren.facade
 
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import com.example.studydesignpattern.BaseActivity
 import com.example.studydesignpattern.R
 import com.example.studydesignpattern.databinding.ActivityFactoryBinding
 
 class FacadePatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.activity_facade) {
 
+    private val facadeComputer = FacadeComputer()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        Log.d("결과", facadeComputer.keyboardSwitchOff().ordinal.toString())
     }
 }
 
 
-enum class EquipmentSwitch {
-    SWITCH_ON, SWITCH_OFF
+enum class EquipmentSwitch(value : Int) {
+    SWITCH_ON(Color.RED), SWITCH_OFF(Color.BLACK)
 }
 
 
