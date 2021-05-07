@@ -13,8 +13,14 @@ class FacadePatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.acti
 }
 
 
+class FacadeComputer {
 
+    private val mouse: Mouse = Mouse()
 
+    fun mouseSwitchOn(): String = mouse.switchOn()
+    fun mouseSwitchOff(): String = mouse.switchOff()
+
+}
 
 
 interface Equipment {
