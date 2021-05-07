@@ -7,6 +7,7 @@ import com.example.studydesignpattern.R
 import com.example.studydesignpattern.book.androiddesingpattren.builder.BuilderPatternActivity
 import com.example.studydesignpattern.book.androiddesingpattren.factory.FactoryPatternActivity
 import com.example.studydesignpattern.book.androiddesingpattren.singleton.SingletonPatternActivity
+import com.example.studydesignpattern.book.androiddesingpattren.strategy.StrategyPatternActivity
 import com.example.studydesignpattern.databinding.ActivityMainBinding
 
 class DesignPatternAndBestPracticeActivity :
@@ -31,6 +32,7 @@ class DesignPatternAndBestPracticeActivity :
             "Factory" -> startFactoryActivity()
             "Builder" -> startBuilderActivity()
             "Singleton" -> startSingletonActivity()
+            "Strategy" -> startStrategyActivity()
         }
     }
 
@@ -38,7 +40,8 @@ class DesignPatternAndBestPracticeActivity :
         private val patternList = listOf(
             "Factory",
             "Builder",
-            "Singleton"
+            "Singleton",
+            "Strategy"
         )
     }
 
@@ -53,6 +56,10 @@ class DesignPatternAndBestPracticeActivity :
 
     private fun startSingletonActivity() {
         startActivity(Intent(this, SingletonPatternActivity::class.java))
+    }
+
+    private fun startStrategyActivity() {
+        startActivity(Intent(this, StrategyPatternActivity::class.java))
     }
 
 }
