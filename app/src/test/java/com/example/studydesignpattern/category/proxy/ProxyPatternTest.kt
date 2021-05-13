@@ -14,7 +14,7 @@ class ProxyPatternTest {
     @Test
     fun `Proxy 의 doAction 값이 DoAction_RealSubject 이어야 한다`() {
         val proxy = Proxy()
-        assert(proxy.doAction == "DoAction_RealSubject")
+        assert(proxy.doAction() == "DoAction_RealSubject")
     }
 
     @Test
