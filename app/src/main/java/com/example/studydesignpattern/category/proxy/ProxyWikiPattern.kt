@@ -37,3 +37,22 @@ class ProxyImage(private val imageName: String) : Image {
         TODO("Not yet implemented")
     }
 }
+
+
+// 직접참조 해서 생성해야함.
+// 대행해주는 대리자를 통해 대상 객체를 접근하는게 아닌 직접 접근.
+class NotProxyUse {
+
+    private val realImage1 = RealImage("Photo1")
+    private val realImage2 = RealImage("Photo2")
+
+    fun load(){
+        realImage1.loadImageFromDisk()
+        realImage2.loadImageFromDisk()
+    }
+
+    fun display(){
+        realImage1.displayImage()
+        realImage2.displayImage()
+    }
+}
