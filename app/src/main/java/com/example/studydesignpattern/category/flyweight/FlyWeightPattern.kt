@@ -4,16 +4,27 @@ class FlyWeightPattern {
 
     private val colors = listOf("Red", "Green", "Blue")
 
-    fun start() {
+    fun startUseFlyWeight() {
 
         for (i in 0..10) {
-            val square = ShapeFactory.getSquare(colors[(Math.random()*3).toInt()]).apply {
-                setLength((Math.random()*10).toInt())
-            }
+            val square =
+                ShapeFactory.getUseFlyWeightSquare(colors[(Math.random() * 3).toInt()]).apply {
+                    setLength((Math.random() * 10).toInt())
+                }
 
             println(square.draw())
         }
+    }
 
+    fun startNotUseFlyWeight() {
+        for (i in 0..10) {
+            val square =
+                ShapeFactory.getNotUseFlyWeightSquare(colors[(Math.random() * 3).toInt()]).apply {
+                    setLength((Math.random() * 10).toInt())
+                }
+
+            println(square.draw())
+        }
     }
 }
 
@@ -47,7 +58,7 @@ class ShapeFactory {
 
         private val squareMap = HashMap<String, Square>()
 
-        fun getSquare(color: String): Square {
+        fun getUseFlyWeightSquare(color: String): Square {
             var square = squareMap[color]
 
             if (square == null) {
@@ -57,5 +68,12 @@ class ShapeFactory {
             }
             return square
         }
+
+        fun getNotUseFlyWeightSquare(color: String): Square {
+            println("새로운 객체 생성")
+            return Square(color)
+
+        }
     }
+
 }
