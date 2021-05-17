@@ -3,8 +3,6 @@ package com.example.studydesignpattern.category.flyweight
 import org.junit.Test
 
 class FlyWeightPatternTest {
-
-
     @Test
     fun `FlyWeight 를 사용했을때의 결과`() {
 
@@ -12,6 +10,7 @@ class FlyWeightPatternTest {
 
         flyWeightPattern.startUseFlyWeight()
 
+        assert(flyWeightPattern.getCreateSquareNum() <= 3)
     }
 
     @Test
@@ -21,7 +20,6 @@ class FlyWeightPatternTest {
 
         flyWeightPattern.startNotUseFlyWeight()
 
+        assert(flyWeightPattern.getCreateSquareNum() == 10)
     }
-
-
 }
