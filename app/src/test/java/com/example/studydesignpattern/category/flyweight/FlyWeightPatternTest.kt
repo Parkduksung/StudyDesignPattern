@@ -1,0 +1,3 @@
+package com.example.studydesignpattern.category.flyweight
+
+class FlyWeightPatternTest
