@@ -15,11 +15,11 @@ class RealImage(private val imageName: String) : Image {
         return "Loading_$imageName"
     }
 
-
     override fun displayImage(): String {
         return "Displaying_$imageName"
     }
 }
+
 
 class ProxyImage(private val imageName: String) : Image {
 

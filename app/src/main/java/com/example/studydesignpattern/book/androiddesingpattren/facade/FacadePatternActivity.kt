@@ -14,12 +14,11 @@ class FacadePatternActivity : BaseActivity<ActivityFactoryBinding>(R.layout.acti
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.d("결과", facadeComputer.keyboardSwitchOff().ordinal.toString())
     }
 }
 
 
-enum class EquipmentSwitch(value : Int) {
+enum class EquipmentSwitch(value: Int) {
     SWITCH_ON(Color.RED), SWITCH_OFF(Color.BLACK)
 }
 
@@ -38,6 +37,7 @@ class FacadeComputer {
 
     fun monitorSwitchOn(): EquipmentSwitch = monitor.switchOn()
     fun monitorSwitchOff(): EquipmentSwitch = monitor.switchOff()
+
 
 }
 

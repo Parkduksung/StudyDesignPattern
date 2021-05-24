@@ -1,38 +1,31 @@
 package com.example.studydesignpattern.category.flyweight
 
+//client
 class FlyWeightPattern {
 
     private val colors = listOf("Red", "Green", "Blue")
 
 
     fun startUseFlyWeight() {
-
         ShapeFactory.resetCreateSquareNum()
-
         for (i in 0..9) {
 
             val square =
                 ShapeFactory.getUseFlyWeightSquare(colors[(Math.random() * 3).toInt()]).apply {
                     setLength((Math.random() * 10).toInt())
                 }
-
             println(square.draw())
-
         }
     }
 
     fun startNotUseFlyWeight() {
-
         ShapeFactory.resetCreateSquareNum()
-
         for (i in 0..9) {
             val square =
                 ShapeFactory.getNotUseFlyWeightSquare(colors[(Math.random() * 3).toInt()]).apply {
                     setLength((Math.random() * 10).toInt())
                 }
-
             println(square.draw())
-
         }
     }
 
@@ -50,10 +43,6 @@ class Square(private val color: String) : Shape {
 
     private var squareColor: String = color
 
-    fun setColor(color: String) {
-        squareColor = color
-    }
-
     fun setLength(length: Int) {
         squareLength = length
     }
@@ -69,8 +58,14 @@ class ShapeFactory {
 
         private val squareMap = HashMap<String, Square>()
 
+        //red - square
+        //green - square
+        //blue - square
+
         private var createSquareNum = 0
 
+
+        // red green red blue
         fun getUseFlyWeightSquare(color: String): Square {
             var square = squareMap[color]
 

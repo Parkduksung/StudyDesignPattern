@@ -21,5 +21,6 @@ class FlyWeightPatternTest {
         flyWeightPattern.startNotUseFlyWeight()
 
         assert(flyWeightPattern.getCreateSquareNum() == 10)
+
     }
 }

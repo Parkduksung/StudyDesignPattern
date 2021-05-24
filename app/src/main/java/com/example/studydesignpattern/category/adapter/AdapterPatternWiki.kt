@@ -57,3 +57,8 @@ class AdapterPatternWiki {
         phone.recharge()
     }
 }
+
+
+class AdapterPattern {
+
+}
