@@ -21,3 +21,25 @@ class ConcreteClass : AbstractClass() {
         return "ABSTRACT hook2 implementation"
     }
 }
+
+
+class ColdBrew : CaffeineBeverage() {
+
+    override fun totalCaffeine(): Int = 10
+    override fun temperature(): Int = 4
+}
+
+class Americano : CaffeineBeverage() {
+    override fun totalCaffeine(): Int = 8
+    override fun temperature(): Int = 2
+}
+
+abstract class CaffeineBeverage {
+
+    public final fun prepareRecipe() : String  {
+        return "카페인 ${totalCaffeine()} 온도 ${temperature()}"
+    }
+
+    abstract fun totalCaffeine(): Int
+    abstract fun temperature(): Int
+}
