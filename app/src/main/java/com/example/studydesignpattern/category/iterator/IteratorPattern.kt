@@ -16,7 +16,7 @@ class Book(private val name: String) {
 
 class BookShelf(size: Int) : Aggregate {
     private val books: Array<Book?> = arrayOfNulls(size)
-    var length = 0 // 마지막 책이 꽂힌 위치
+    var length = 0
         private set
 
     fun getBook(index: Int): Book? {
