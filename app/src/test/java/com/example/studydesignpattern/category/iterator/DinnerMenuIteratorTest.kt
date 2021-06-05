@@ -1,6 +1,6 @@
-package com.example.studydesignpattern.category
+package com.example.studydesignpattern.category.iterator
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class DinnerMenuIteratorTest {

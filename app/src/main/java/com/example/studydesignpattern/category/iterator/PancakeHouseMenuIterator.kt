@@ -1,4 +1,4 @@
-package com.example.studydesignpattern.category
+package com.example.studydesignpattern.category.iterator
 
 
 class PancakeHouseMenuIterator(private val pancakeHouseArray: Array<String>) : Iterator<String> {

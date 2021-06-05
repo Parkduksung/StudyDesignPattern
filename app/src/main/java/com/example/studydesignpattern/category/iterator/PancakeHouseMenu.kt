@@ -1,4 +1,4 @@
-package com.example.studydesignpattern.category
+package com.example.studydesignpattern.category.iterator
 
 class PancakeHouseMenu : Menu {
 
