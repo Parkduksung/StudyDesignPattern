@@ -32,3 +32,25 @@ class CareTaker {
     }
 
 }
+
+
+class RawMemento(var state : String) {
+
+    private val mementoList = ArrayList<Memento>()
+
+    fun createMemento(): Memento {
+        return Memento(state)
+    }
+
+    fun restore(memento: Memento) {
+        state = memento.state
+    }
+
+    fun saveState(state: Memento) {
+        mementoList.add(state)
+    }
+
+    fun restore(index: Int): Memento {
+        return mementoList[index]
+    }
+}
