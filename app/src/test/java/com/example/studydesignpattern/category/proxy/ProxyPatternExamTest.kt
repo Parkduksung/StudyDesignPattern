@@ -14,7 +14,7 @@ class ProxyPatternExamTest {
 
         assert(imageProxy.printImage() ==  "Local Image")
 
-        delay(550)
+        delay(500)
 
         assert(imageProxy.printImage() ==  "Remote Image")
 
