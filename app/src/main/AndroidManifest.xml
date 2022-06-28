@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyDesignPattern">
-        <activity android:name=".category.state.StatePattern">
+        <activity
+            android:name=".category.state.StatePattern"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,12 +20,24 @@
         </activity>
 
 
-        <activity android:name=".book.androiddesingpattren.factory.FactoryPatternActivity" />
-        <activity android:name=".book.androiddesingpattren.builder.BuilderPatternActivity" />
-        <activity android:name=".book.androiddesingpattren.singleton.SingletonPatternActivity" />
-        <activity android:name=".book.androiddesingpattren.singleton.SingletonSubActivity" />
-        <activity android:name=".book.androiddesingpattren.strategy.StrategyPatternActivity" />
-        <activity android:name=".book.androiddesingpattren.facade.FacadePatternActivity" />
+        <activity
+            android:name=".book.androiddesingpattren.factory.FactoryPatternActivity"
+            android:exported="false" />
+        <activity
+            android:name=".book.androiddesingpattren.builder.BuilderPatternActivity"
+            android:exported="false" />
+        <activity
+            android:name=".book.androiddesingpattren.singleton.SingletonPatternActivity"
+            android:exported="false" />
+        <activity
+            android:name=".book.androiddesingpattren.singleton.SingletonSubActivity"
+            android:exported="false" />
+        <activity
+            android:name=".book.androiddesingpattren.strategy.StrategyPatternActivity"
+            android:exported="false" />
+        <activity
+            android:name=".book.androiddesingpattren.facade.FacadePatternActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
