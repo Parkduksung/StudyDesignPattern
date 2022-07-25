@@ -11,6 +11,26 @@ import org.testng.AssertJUnit.assertEquals
 class CommandPatternTest {
 
 
+    companion object {
+        private const val CHECK_STRING_SLEEP = "잠잔다"
+    }
+
+    lateinit var sleepCommand: SleepCommand
+
+    @Mock
+    lateinit var sleep: Sleep
+
+
+    @Test
+    fun `sleepCommand 의 생성자가 Sleep 일때 start 가 잠잔다 이어야 한다`() {
+        sleep = Mockito.mock(Sleep::class.java)
+        sleepCommand = SleepCommand(sleep)
+
+        Mockito.`when`(sleep.start()).thenReturn(CHECK_STRING_SLEEP)
+
+        assertEquals(sleepCommand.execute(), CHECK_STRING_SLEEP)
+    }
+
 
     @Test
     fun `Eat 의 start() 값은 먹는다 이어야 한다`() {
