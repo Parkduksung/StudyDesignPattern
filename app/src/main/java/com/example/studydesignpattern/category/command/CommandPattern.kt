@@ -28,6 +28,10 @@ interface Behavior {
     fun execute(): String
 }
 
+interface Command {
+    fun start(): String
+}
+
 class Eat {
     fun start(): String {
         return "먹는다"
@@ -40,9 +44,27 @@ class Sleep {
     }
 }
 
+class Work {
+    fun start(): String {
+        return "일한다"
+    }
+}
+
 class SleepCommand(private val sleep: Sleep) : Behavior {
     override fun execute(): String {
         return sleep.start()
+    }
+}
+
+class EatCommand(private val eat: Eat) : Behavior {
+    override fun execute(): String {
+        return eat.start()
+    }
+}
+
+class WorkCommand(private val work: Work) : Behavior {
+    override fun execute(): String {
+        return work.start()
     }
 }
 
@@ -54,14 +76,14 @@ class Human {
         behaviorStack.push(behavior)
     }
 
-    fun undo(){
+    fun undo() {
         behaviorStack.pop()
     }
 
-    fun run() : String{
+    fun run(): String {
         var result = ""
         behaviorStack.forEach {
-            result +=it.execute()
+            result += it.execute()
         }
 
         return result
