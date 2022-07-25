@@ -1,8 +1,5 @@
 package com.example.studydesignpattern.category.interpreter
 
-class InterpreterPattern {
-}
-
 
 interface Expression {
     fun interpreter(con: String): Boolean
@@ -15,16 +12,16 @@ class TerminalExpression(private val data: String) : Expression {
     }
 }
 
-class OrExpression(private val expr1: Expression, private val expr2: Expression) : Expression {
+class OrExpression(private vararg val expr1: Expression) : Expression {
 
     override fun interpreter(con: String): Boolean {
-        return expr1.interpreter(con) || expr2.interpreter(con)
+        return expr1.any { it.interpreter(con) }
     }
 }
 
-class AndExpression(private val expr1: Expression, private val expr2: Expression) : Expression {
+class AndExpression(private vararg val expr: Expression) : Expression {
 
     override fun interpreter(con: String): Boolean {
-        return expr1.interpreter(con) && expr2.interpreter(con)
+        return expr.all { it.interpreter(con) }
     }
 }
