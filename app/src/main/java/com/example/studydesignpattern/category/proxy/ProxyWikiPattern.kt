@@ -1,58 +1,93 @@
 package com.example.studydesignpattern.category.proxy
 
-class ProxyWikiPattern {
-}
-
 
 interface Image {
-    fun displayImage(): String
-    fun loadImageFromDisk(): String
+    fun displayImage()
 }
 
-class RealImage(private val imageName: String) : Image {
+class JpgImage(private val fileName: String) : Image {
 
-    override fun loadImageFromDisk(): String {
-        return "Loading_$imageName"
+    init {
+        loadImageFromDisk()
     }
 
-    override fun displayImage(): String {
-        return "Displaying_$imageName"
+    override fun displayImage() {
+        println("displaying jpg $fileName")
+    }
+
+    private fun loadImageFromDisk() {
+        println("loading jpg $fileName")
+    }
+}
+
+class PngImage(private val fileName: String) : Image {
+
+    init {
+        loadImageFromDisk()
+    }
+
+    override fun displayImage() {
+        println("displaying png $fileName")
+    }
+
+    private fun loadImageFromDisk() {
+        println("loading png $fileName")
     }
 }
 
 
-class ProxyImage(private val imageName: String) : Image {
+class JpegImage(private val fileName: String) : Image {
 
-    private lateinit var realImage: RealImage
+    init {
+        loadImageFromDisk()
+    }
 
-    override fun displayImage(): String {
-        if (!::realImage.isInitialized) {
-            realImage = RealImage(imageName)
+    override fun displayImage() {
+        println("displaying jpeg $fileName")
+    }
+
+    private fun loadImageFromDisk() {
+        println("loading jpeg $fileName")
+    }
+}
+
+
+class VectorImage(private val fileName: String) : Image {
+
+    init {
+        loadImageFromDisk()
+    }
+
+    override fun displayImage() {
+        println("displaying vector $fileName")
+    }
+
+    private fun loadImageFromDisk() {
+        println("loading vector $fileName")
+    }
+}
+
+class ProxyImage(fileName: String, type: ImageType) : Image {
+
+    private val image: Image
+
+    init {
+        image = when (type) {
+            is ImageType.JPG -> JpgImage(fileName)
+            is ImageType.PNG -> PngImage(fileName)
+            is ImageType.JPEG -> JpegImage(fileName)
+            is ImageType.VECTOR -> VectorImage(fileName)
         }
-        return realImage.displayImage()
     }
 
-    //todo
-    override fun loadImageFromDisk(): String {
-        TODO("Not yet implemented")
+    override fun displayImage() {
+        image.displayImage()
     }
 }
 
-
-// 직접참조 해서 생성해야함.
-// 대행해주는 대리자를 통해 대상 객체를 접근하는게 아닌 직접 접근.
-class NotProxyUse {
-
-    private val realImage1 = RealImage("Photo1")
-    private val realImage2 = RealImage("Photo2")
-
-    fun load(){
-        realImage1.loadImageFromDisk()
-        realImage2.loadImageFromDisk()
-    }
-
-    fun display(){
-        realImage1.displayImage()
-        realImage2.displayImage()
-    }
+sealed class ImageType {
+    object JPG : ImageType()
+    object PNG : ImageType()
+    object JPEG : ImageType()
+    object VECTOR : ImageType()
 }
