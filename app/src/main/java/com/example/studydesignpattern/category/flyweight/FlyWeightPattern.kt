@@ -1,5 +1,7 @@
 package com.example.studydesignpattern.category.flyweight
 
+import android.util.Log
+
 //client
 class FlyWeightPattern {
 
@@ -9,7 +11,6 @@ class FlyWeightPattern {
     fun startUseFlyWeight() {
         ShapeFactory.resetCreateSquareNum()
         for (i in 0..9) {
-
             val square =
                 ShapeFactory.getUseFlyWeightSquare(colors[(Math.random() * 3).toInt()]).apply {
                     setLength((Math.random() * 10).toInt())
@@ -75,13 +76,18 @@ class ShapeFactory {
                 square = Square(color)
                 squareMap[color] = square
             }
+
+            println(square.hashCode())
             return square
         }
 
         fun getNotUseFlyWeightSquare(color: String): Square {
             println("새로운 객체 생성")
             createSquareNum++
-            return Square(color)
+
+            val square = Square(color)
+            println(square.hashCode())
+            return square
 
         }
 
