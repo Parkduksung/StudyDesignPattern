@@ -1,51 +1,45 @@
 package com.example.studydesignpattern.category.iterator
 
-class IteratorPattern {
-
-}
-
 
 interface Aggregate {
     fun createIterator(): Iterator<*>
 }
 
-class Book(private val name: String) {
-    fun getName(): String = name
-}
-
+data class Book(
+    val name: String
+)
 
 class BookShelf(size: Int) : Aggregate {
+
     private val books: Array<Book?> = arrayOfNulls(size)
-    var length = 0
+
+    var containCount = 0
         private set
 
     fun getBook(index: Int): Book? {
         return books[index]
     }
 
-    fun appendBook(book: Book?) {
-        if (length < books.size) {
-            books[length] = book
-            length++
+    fun appendBook(book: Book?): Boolean {
+        return if (containCount < books.size) {
+            books[containCount] = book
+            containCount++
+            true
         } else {
-            println("책꽂이가 꽉 찼습니다!")
+            false
         }
     }
 
     override fun createIterator(): Iterator<*> {
         return BookShelfIterator(this)
     }
-
-    fun getBookArray() : Array<Book?> =
-        books
-
 }
 
 class BookShelfIterator(private val bookShelf: BookShelf) : Iterator<Book> {
     private var index = 0
 
     override fun hasNext(): Boolean {
-        return index < bookShelf.length
+        return index < bookShelf.containCount
     }
 
     override fun next(): Book {
@@ -53,4 +47,6 @@ class BookShelfIterator(private val bookShelf: BookShelf) : Iterator<Book> {
         index++
         return book!!
     }
+
+
 }
