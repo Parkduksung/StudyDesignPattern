@@ -1,5 +1,9 @@
 package com.example.studydesignpattern.category.abstractfactory
 
+import org.junit.Assert.assertEquals
+import org.junit.Test
+import javax.crypto.Mac
+
 class ComputerExam {
 
 
@@ -19,13 +23,19 @@ data class Component(
 )
 
 
-class PC(private val component: Component) : Computer() {
+class SamsungNoteBook(private val component: Component) : Computer() {
     override fun getRAM(): String = component.ram
     override fun getCPU(): String = component.cpu
     override fun getHDD(): String = component.hdd
 }
 
-class Server(private val component: Component) : Computer() {
+class LGNoteBook(private val component: Component) : Computer() {
+    override fun getRAM(): String = component.ram
+    override fun getCPU(): String = component.cpu
+    override fun getHDD(): String = component.hdd
+}
+
+class MacBook(private val component: Component) : Computer() {
     override fun getRAM(): String = component.ram
     override fun getCPU(): String = component.cpu
     override fun getHDD(): String = component.hdd
@@ -35,13 +45,18 @@ interface ComputerAbstractFactory {
     fun createComputer(): Computer
 }
 
-class PCFactory(private val component: Component) : ComputerAbstractFactory {
-    override fun createComputer(): Computer = PC(component)
+class SamsungFactory(private val component: Component) : ComputerAbstractFactory {
+    override fun createComputer(): Computer = SamsungNoteBook(component)
 }
 
-class ServerFactory(private val component: Component) : ComputerAbstractFactory {
-    override fun createComputer(): Computer = Server(component)
+class LGFactory(private val component: Component) : ComputerAbstractFactory {
+    override fun createComputer(): Computer = LGNoteBook(component)
 }
+
+class APPLEFactory(private val component: Component) : ComputerAbstractFactory {
+    override fun createComputer(): Computer = MacBook(component)
+}
+
 
 class ComputerFactory {
     companion object {
