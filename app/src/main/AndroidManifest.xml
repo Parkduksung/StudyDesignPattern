@@ -21,7 +21,7 @@
 
 
         <activity
-            android:name=".book.androiddesingpattren.factory.FactoryPatternActivity"
+            android:name=".book.androiddesingpattren.strategy.StrategyPatternActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,9 +38,7 @@
         <activity
             android:name=".book.androiddesingpattren.singleton.SingletonSubActivity"
             android:exported="false" />
-        <activity
-            android:name=".book.androiddesingpattren.strategy.StrategyPatternActivity"
-            android:exported="false" />
+
         <activity
             android:name=".book.androiddesingpattren.facade.FacadePatternActivity"
             android:exported="false" />
