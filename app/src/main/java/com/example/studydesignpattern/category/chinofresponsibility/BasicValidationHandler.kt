@@ -1,46 +1,38 @@
 package com.example.studydesignpattern.category.chinofresponsibility
 
 
-interface Handler {
-    fun handle(request: Request): Response
-}
-
 data class Request(val email: String, val question: String)
 
 data class Response(val answer: String)
 
-class BasicValidationHandler(private val next: Handler) : Handler {
-    override fun handle(request: Request): Response {
-        if (request.email.isEmpty() || request.question.isEmpty())
+
+val basicValidation = fun(next: Handler) =
+    fun(request: Request): Response {
+        if (request.email.isEmpty())
             throw java.lang.IllegalArgumentException()
-
-        return next.handle(request)
+        return next(request)
     }
-}
 
-
-class KnownEmailHandler(private val next: Handler) : Handler {
-    override fun handle(request: Request): Response {
-        return next.handle(request)
+val authentication = fun(next: Handler) =
+    fun(request: Request): Response {
+        if (request.question.isEmpty())
+            throw java.lang.IllegalArgumentException()
+        return next(request)
     }
-}
 
-class JuniorDeveloperFilterHandler(private val next: Handler) : Handler {
-    override fun handle(request: Request): Response {
-        return next.handle(request)
+val finalResponse = fun() =
+    fun(request: Request): Response {
+        if (request.question.isEmpty())
+            throw java.lang.IllegalArgumentException()
+        return Response("finalResponse")
     }
-}
-
-class AnswerHandler : Handler {
-    override fun handle(request: Request): Response {
-        return Response("")
-    }
-}
 
 
 val req = Request(email = "duksung1234@naver.com", "Who broke my build?")
 
-val chain = BasicValidationHandler(KnownEmailHandler(JuniorDeveloperFilterHandler(AnswerHandler())))
+val chain = basicValidation(authentication(finalResponse()))
 
-val res = chain.handle(req)
+val res = chain(req)
 
+
+typealias Handler = (request: Request) -> Response
